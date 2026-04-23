@@ -1,0 +1,31 @@
+.ventanaInicio {
+    width: 200px;
+    background-color: #17FF5A;
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 80px;
+    right: 25px;
+    border-radius: 12px;
+}
+
+.botonVentanaInicio {
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    padding: 0.5rem;
+}
+
+.botonVentanaInicio:hover {
+    color: #ff0000;
+    background-color: #ffffff;
+}
+
+.oculto {
+  display: none;
+}
+
+.visible {
+  display: flex;
+}

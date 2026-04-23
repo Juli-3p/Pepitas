@@ -1,9 +1,6 @@
-<style>
-    .principal{
-        color: #235347;
-    }
-</style>
+<link rel="stylesheet" href="/css/index.css">
 <div class="principal">
+
 <%- include('../partials/header') %>
     <h1>Hola Mundo! 👋</h1>
 
@@ -29,7 +26,22 @@
     <h2>Bombilla</h2>
     <p>Imagen</p>
 </div>
+<%- include('../partials/ventanaInicio') %>
 <%- include('../partials/footer') %>
 </div>
 
 
+<script>
+    const ventanita = document.querySelector(".usuario");
+    const ventanita2 = document.querySelector(".ventanaInicio");
+
+    ventanita.addEventListener('click', () => {
+        if (ventanita2.classList.contains("oculto")) {
+            ventanita2.classList.remove("oculto");
+            ventanita2.classList.add("visible");
+        } else {
+            ventanita2.classList.remove("visible");
+            ventanita2.classList.add("oculto");
+        }
+    })
+</script>
