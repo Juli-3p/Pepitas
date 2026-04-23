@@ -1,0 +1,49 @@
+.footer{
+  margin-top: 2em;
+  padding: 15px 30px;
+  background: #051f20;
+  border-radius: 40px;
+  color: #daf1de;
+  font-family: sans-serif;
+}
+.footer-contenido{ 
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; 
+  gap: 20px; 
+} 
+.footer-col{ 
+  display: flex; 
+  align-items: center;
+  gap: 15px; 
+} 
+.footer-col a{ 
+  text-decoration: none; 
+  color: #daf1de; 
+  font-size: 13px; 
+  transition: 0.2s; 
+} 
+
+.footer-col a:hover{ 
+  color: #8eb69b; 
+} 
+
+.footer-brand{ 
+  font-weight: bold; 
+  font-size: 16px; 
+  color: #8eb69b; 
+} 
+
+.footer-copy{
+  font-size: 12px;
+  color: #8eb69b;
+}
+.footer-col i{
+  font-size: 18px;
+  transition: 0.2s;
+}
+.footer-col i:hover{
+  color: #8eb69b;
+  transform: scale(1.2);
+}
