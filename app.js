@@ -15,6 +15,10 @@ app.get('/registro',(req,res) => res.render("../views/paginas/registro")); //reg
 
 app.get('/carrito',(req,res) => res.render("../views/paginas/carrito")); //carrito
 
+app.get('/pago',(req,res) => res.render("../views/paginas/pago")); //pago
+
+app.get('/vistProd',(req,res) => res.render("../views/paginas/vistProd")); //pago
+
 app.listen(port, () =>{
     console.log("Aplicacion funcionando en el puerto");
 });

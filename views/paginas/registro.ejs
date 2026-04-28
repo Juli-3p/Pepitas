@@ -1,1 +1,32 @@
+ <link rel="stylesheet" href="/css/registro.css">
+<div class="principal">
+    <%- include('../partials/header') %>
+    
+    <div class="registro">
+        <h1>Registrate!</h1>
+        <form action="/registro" method="POST">
+            <input type="text" placeholder="Usuario" name="usuario" required>
+            <input type="password" placeholder="Contraseña" name="contraseña" required>
+            <button type="submit">Ingresar</button>
+        </form>
+        <p>¿Tienes una cuenta? <a href="/logeo">Inicia sesion aquí</a></p>
+    </div>
+    <%- include('../partials/ventanaInicio') %>
+<%- include('../partials/footer') %>
 
+</div>
+
+<script>
+    const ventanita = document.querySelector(".usuario");
+    const ventanita2 = document.querySelector(".ventanaInicio");
+
+    ventanita.addEventListener('click', () => {
+        if (ventanita2.classList.contains("oculto")) {
+            ventanita2.classList.remove("oculto");
+            ventanita2.classList.add("visible");
+        } else {
+            ventanita2.classList.remove("visible");
+            ventanita2.classList.add("oculto");
+        }
+    })
+</script>
