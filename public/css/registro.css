@@ -8,7 +8,7 @@ body{
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 100vh;
+        height: 100%;
         
 }
 
@@ -22,6 +22,31 @@ body{
 .registro input {
     width: 200px;
     padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+}
+
+.registro button {
+    width: 100px;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    background-color: #8eb69b;
+    color: white;
+    cursor: pointer;
+}
+
+.enlaceLogeo {
+    margin-top: 10px;
+    color: #051f20;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.principal header {
+    background-color: #D8EDDE;
+}
+
+.principal header .logo {
+    color: #D8EDDE;
 }
