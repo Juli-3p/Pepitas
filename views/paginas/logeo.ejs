@@ -1,16 +1,28 @@
 <link rel="stylesheet" href="/css/logeo.css">
 <div class="principal">
-    <%- include('../partials/header') %>
- 
+    
+<header class="header" style="padding: 1em; margin-bottom: 1em">
+  <link rel="stylesheet" href="/css/header.css">
+  
+  <a href="/">
+  <img src="/imagen/logo_pepitas.png" alt="Pepitas">
+  </a>
+
+  <div class="seccion">   
+    <div class="usuario">...</div>
+  </div>
+
+</header>
+
     <div class="logeo">
-        <h1>Inicia Sesión</h1>
+        <h1>¡Inicia Sesión!</h1>
 
         <form action="/logeo" method="POST">
             <input type="text" placeholder="Usuario" name="usuario" required>
             <input type="password" placeholder="Contraseña" name="contraseña" required>
             <button type="submit">Ingresar</button>
         </form>
-        <p>¿No tienes una cuenta? <a href="/registro">Regístrate aquí</a></p>
+        <p>¿No tienes una cuenta? <a class="enlaceRegistro" href="/registro">Regístrate aquí</a></p>
 
     </div>
 
