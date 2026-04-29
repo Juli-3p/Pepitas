@@ -1,12 +1,17 @@
 body{
     background-color: #D8EDDE;
 }
+
 section{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
+    justify-content: center;
     gap: 20px;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
 .producto {
     background-color: #051f20;
     border-radius: 12px;
@@ -15,9 +20,11 @@ section{
     color: white;
     transition: transform 0.3s ease;
 }
+
 .producto:hover {
     transform: scale(1.05);
 }
+
 .imagen {
     width: 100%;
     height: 180px;
@@ -25,6 +32,7 @@ section{
     border-radius: 10px;
     margin-bottom: 10px;
 }
+
 .imagen img {
     width: 100%;
     height: 100%;
@@ -32,19 +40,23 @@ section{
     transition: all 0.4s ease;
     border-radius: 5%;
 }
+
 .producto:hover .imagen img {
     object-fit: contain;
     transform: scale(1.1);
 }
+
 .producto h3 {
     font-size: 18px;
     margin: 10px 0 5px;
 }
+
 .precio {
     font-size: 16px;
     color: #00d084;
     margin-bottom: 10px;
 }
+
 .producto button {
     background-color: #00d084;
     border: none;
@@ -54,6 +66,7 @@ section{
     font-weight: bold;
     width: 100%;
 }
+
 .producto button:hover {
     background-color: #00a86b;
 }
