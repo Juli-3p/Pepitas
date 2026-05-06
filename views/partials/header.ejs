@@ -12,10 +12,26 @@
   <div class="seccion">
     <div class="carrito">
       <a href="/carrito">
-        🛒<span class="bolsa">2</span>
+        🛒<span class="bolsa">3</span>
       </a>
     </div>
     <div class="usuario">...</div>
+    <%- include('../partials/ventanaInicio') %>
   </div>
+
+  <script>
+    const ventanita = document.querySelector(".usuario");
+    const ventanita2 = document.querySelector(".ventanaInicio");
+
+    ventanita.addEventListener('click', () => {
+        if (ventanita2.classList.contains("oculto")) {
+            ventanita2.classList.remove("oculto");
+            ventanita2.classList.add("visible");
+        } else {
+            ventanita2.classList.remove("visible");
+            ventanita2.classList.add("oculto");
+        }
+    })
+    </script>
 
 </header>

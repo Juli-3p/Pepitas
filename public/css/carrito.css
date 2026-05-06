@@ -1,6 +1,10 @@
 .principal {
-  width: 80%;
+  width: 100%;
   margin: auto;
+}
+
+body{
+  background-color: #D8EDDE
 }
 
 .producto {
