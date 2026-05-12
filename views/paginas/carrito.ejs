@@ -1,54 +1,67 @@
-<link rel="stylesheet" href="/css/carrito.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<div class="principal">
+  <link rel="stylesheet" href="/css/carrito.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <div class="principal">
 
-<%- include('../partials/header') %>
+  <%- include('../partials/header') %>
 
-  <div class="Volver">
-    <a href="/">⬅ Volver</a>
-  </div>
-  <h2>Productos en tu Carrito</h2>
+    <div class="Volver">
+      <a href="/">⬅ Volver</a>
+    </div>
+    <h2>Productos en tu Carrito</h2>
 
-  <section id="ProductosCarrito">
-    <article class="producto">
-        <div class="imagen">
+    <section id="ProductosCarrito">
+      <article class="producto">
+        <div class="izquierda">
+          <div class="imagen">
             <img src="/imagen/termo.png">
+          </div>
+          <div class="ProductInfo">
+            <h3>Termo Ozz 1l Doble Pared Con Pico Cebador Y 360°</h3>
+          </div>
         </div>
-        <div class="ProductInfo">
-          <h3>Termo Ozz 1l Doble Pared Con Pico Cebador Y 360°</h3>
+        <div class="derecha">
+          <button><b>Quitar</b></button>
+          <p class="precio">$29.999</p>
         </div>
-        <button><b>Quitar</b></button>
-        <p class="precio">$29.999</p>
-    </article>
-    <article class="producto">
-        <div class="imagen">
-            <img src="/imagen/mate 3.png">
-        </div>
-        <div class="ProductInfo">
-          <h3>Mate Térmico De Acero Inox. Doble Pared - 160 Ml Color Azul 160ml</h3>
-        </div>
-        <button><b>Quitar</b></button>
-        <p class="precio">$15.985</p>
-    </article>
-    <article class="producto">
-        <div class="imagen">
+      </article>
+      
+      <article class="producto">
+          <div class="izquierda">
+            <div class="imagen">
+              <img src="/imagen/mate 3.png">
+            </div>
+            <div class="ProductInfo">
+              <h3>Mate Térmico De Acero Inox. Doble Pared - 160 Ml Color Azul 160ml</h3>
+            </div>
+          </div>
+          <div class="derecha">
+            <button><b>Quitar</b></button>
+            <p class="precio">$15.985</p>
+          </div>
+      </article>
+      <article class="producto">
+        <div class="izquierda">
+          <div class="imagen">
             <img src="/imagen/bombilla.png">
+          </div>
+          <div class="ProductInfo">
+            <h3>Bombilla Alpaca Curva Uruguaya Pico De Loro Chata Plana</h3>
+          </div>
         </div>
-        <div class="ProductInfo">
-          <h3>Bombilla Alpaca Curva Uruguaya Pico De Loro Chata Plana</h3>
+        <div class="derecha">
+          <button><b>Quitar</b></button>
+          <p class="precio">$13.197</p>
         </div>
-        <button><b>Quitar</b></button>
-        <p class="precio">$13.197</p>
-    </article>
-  </section>
-  <section>
-    <article class="Pagar">
-      <div class="TotalPagar">
-        <p>Total a Pagar: <b>59.181</b></p>
-      </div>
-      <div class="Comprar">
-        <button><b>Comprar</b></button>
-      </div>
-    </article>
-  </section>
-<%- include('../partials/footer') %>
+      </article>
+    </section>
+    <section>
+      <article class="Pagar">
+        <div class="TotalPagar">
+          <p>Total a Pagar: <b>59.181</b></p>
+        </div>
+        <div class="Comprar">
+          <button><b>Comprar</b></button>
+        </div>
+      </article>
+    </section>
+  <%- include('../partials/footer') %>
