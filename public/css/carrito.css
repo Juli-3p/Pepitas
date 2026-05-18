@@ -7,12 +7,12 @@ body{
   background-color: #D8EDDE
 }
 
-.Volver a,
-.Volver a:visited,
-.Volver a:hover,
-.Volver a:active {
-  color: black;
-  text-decoration: none;
+.Volver a, 
+.Volver a:visited, 
+.Volver a:hover, 
+.Volver a:active { 
+  color: black; 
+  text-decoration: none; 
 }
 
 .producto {
@@ -20,9 +20,11 @@ body{
   justify-content: space-between;
   align-items: center;
 
+  height: 90px;
+
   color: white;
   background: #051f20;
-  padding: 15px;
+  padding: 5px;
   margin: 15px 0;
   border-radius: 12px;
 }
@@ -35,7 +37,8 @@ body{
 
 .producto .imagen img {
   width: 60px;
-  height: auto;
+  height: 60px;
+  object-fit: contain;
 }
 
 .producto h3 {
@@ -46,7 +49,33 @@ body{
 .derecha {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
+}
+
+.cantidad {
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #00d084;
+  border-radius: 20px;
+  background: #00d084;
+  overflow: hidden;
+}
+
+.cantidad button {
+  border: none;
+  background: transparent;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cantidad input {
+  width: 30px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  font-size: 14px;
 }
 
 .producto button {
@@ -70,6 +99,6 @@ body{
   border: none;
   border-radius: 20px;
   background: #00d084;
-  color: 051f20;
+  color: #051f20;
   cursor: pointer;
 }
