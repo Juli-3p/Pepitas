@@ -1,4 +1,4 @@
-  <link rel="stylesheet" href="/css/carrito.css">
+<link rel="stylesheet" href="/css/carrito.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <div class="principal">
 
@@ -21,6 +21,13 @@
         </div>
         <div class="derecha">
           <button><b>Quitar</b></button>
+
+          <div class="cantidad">
+            <button class="menos">-</button>
+            <input type="text" value="1" readonly>
+            <button class="mas">+</button>
+          </div>
+
           <p class="precio">$29.999</p>
         </div>
       </article>
@@ -34,10 +41,17 @@
               <h3>Mate Térmico De Acero Inox. Doble Pared - 160 Ml Color Azul 160ml</h3>
             </div>
           </div>
-          <div class="derecha">
-            <button><b>Quitar</b></button>
-            <p class="precio">$15.985</p>
+        <div class="derecha">
+          <button><b>Quitar</b></button>
+
+          <div class="cantidad">
+            <button class="menos">-</button>
+            <input type="text" value="1" readonly>
+            <button class="mas">+</button>
           </div>
+
+          <p class="precio">$15.895</p>
+        </div>
       </article>
       <article class="producto">
         <div class="izquierda">
@@ -50,6 +64,13 @@
         </div>
         <div class="derecha">
           <button><b>Quitar</b></button>
+
+          <div class="cantidad">
+            <button class="menos">-</button>
+            <input type="text" value="1" readonly>
+            <button class="mas">+</button>
+          </div>
+
           <p class="precio">$13.197</p>
         </div>
       </article>
@@ -64,4 +85,27 @@
         </div>
       </article>
     </section>
+
+    <script>
+      document.querySelectorAll('.cantidad').forEach(cantidad => {
+
+        const input = cantidad.querySelector('input');
+        const btnMas = cantidad.querySelector('.mas');
+        const btnMenos = cantidad.querySelector('.menos');
+
+        btnMas.addEventListener('click', () => {
+          input.value = parseInt(input.value) + 1;
+        });
+
+        btnMenos.addEventListener('click', () => {
+          let valor = parseInt(input.value);
+
+          if (valor > 1) {
+            input.value = valor - 1;
+          }
+        });
+
+      });
+    </script>
+    
   <%- include('../partials/footer') %>
