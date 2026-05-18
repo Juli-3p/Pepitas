@@ -31,6 +31,10 @@ app.get('/pago',(req,res) => res.render("../views/paginas/pago")); //pago
 
 app.get('/vistProd',(req,res) => res.render("../views/paginas/vistProd")); //pago
 
+app.post('/vistProd', (req, res) => {
+    res.redirect('/carrito');
+});
+
 app.listen(port, () =>{
     console.log("Aplicacion funcionando en el puerto");
 });
