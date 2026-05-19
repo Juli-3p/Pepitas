@@ -17,6 +17,8 @@ section{
 .producto {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
     height: 100%;
     background-color: #051f20;
     border-radius: 12px;
@@ -102,7 +104,7 @@ section{
 .precio {
     font-size: 16px;
     color: #00d084;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .producto > button {
