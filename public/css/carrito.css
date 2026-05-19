@@ -102,3 +102,26 @@ body{
   color: #051f20;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .producto {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 15px;
+  }
+
+  .izquierda,
+  .derecha {
+    width: 100%;
+  }
+
+  .derecha {
+    justify-content: space-between;
+  }
+
+  .ProductInfo h3 {
+    font-size: 14px;
+  }
+
+}
