@@ -25,15 +25,25 @@
     .buscador input{
       border: none;
       outline: none;
-      flex: 1;
+      flex: 1 1 auto;
+      min-width: 0; 
       padding: 8px;
-      border-radius: 25px;
+      border-radius: 20px 0 0 20px; 
+      box-sizing: border-box;
     }
     .buscador button{
       border: none;
       background: none;
       cursor: pointer;
       font-size: 16px;
+      flex: 0 0 auto; 
+      padding: 6px 8px;
+      border-radius: 0 20px 20px 0; 
+    }
+
+    .buscador{
+      overflow: hidden;
+      box-sizing: border-box;
     }
     .seccion{
       display: flex;
@@ -46,6 +56,7 @@
       background-color: #051f20;
       border-radius: 25px;
       align-items: center;
+      text-decoration: none;
     }
     .bolsa{
       position: absolute;
@@ -61,13 +72,52 @@
       background: #051f20;
       color: white;
       padding: 6px 12px;
-      border-radius: 20px;
+      border-radius: 25px;
       cursor: pointer;
     }
     header img {
-      height: 150px; 
+      max-height: 70px;
       width: auto;
-      position: relative;
-      top: 5px;
-      right: 30px;
+      display: block;
+      margin-right: 30px;
+    }
+
+
+    @media (max-width: 768px) { /* medida a usar en celus */
+      .header {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 5px;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      .buscador {
+        width: auto;
+       flex: 1 1 45%;
+        min-width: 110px;
+        height: auto;
+        padding: 4px 8px;
+      }
+
+      .buscador button {
+        font-size: 12px;
+
+      }
+
+      .seccion {
+        flex-direction:row;
+        margin: 2px;
+        gap: 8px;
+        flex: 0 0 auto;
+        font-size:auto;
+        
+      }
+
+      header img {
+        max-height: 48px; 
+        margin-right: 0;
+        margin-bottom: 0;
+        flex: 0 0 auto;
+      }
     }

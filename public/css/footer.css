@@ -48,3 +48,23 @@
   color: #8eb69b;
   transform: scale(1.2);
 }
+
+
+@media (max-width: 420px) { /* medida a usar en celus */
+
+  .footer-contenido {
+    flex-direction: column;
+     text-align: center;
+     gap: 5px;
+  }
+  
+  .footer-col {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .footer-copy {
+    margin-top: 10px;
+  }
+
+} 

@@ -31,3 +31,11 @@
 .visible {
   display: flex;
 }
+
+ @media (max-width: 768px) {/* medida a usar en celus */
+    .ventanaInicio {
+      top: 95px;
+      right: 15px;
+      text-align: center;
+    }
+  }
