@@ -190,5 +190,62 @@ section{
 h2{
     text-align: center;
     color: #333;
-    margin-bottom:30px;
+    margin-bottom: 30px;
+}
+
+
+@media (max-width: 768px) {/* medida a usar en celus */
+    .producto{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .galeria{
+        flex-direction: row;
+    }
+    .imagenSecun{
+        flex-direction: row;
+    }
+    .imagenSecun img{
+        width: 60px;
+        height: 60px;
+    }
+    .imagen{
+        width: 100%;
+        height: auto;
+    }
+
+    .btn-carrito{
+        text-align: center;
+    }
+
+    #prodRelacionados{
+        grid-template-columns: repeat(2, minmax(140px, 1fr)); /*magia wacho,con esto quedo pipi cucu*/
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .producto1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-size: 14px;
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .imagen1{
+        width: 100%;
+        height: 140px;
+    }
+
+    .producto1 h3{
+        margin: 8px 5px;
+        max-height: 42px;
+    }
+
+    .producto1 button{
+        padding: 10px 12px;
+    }
 }

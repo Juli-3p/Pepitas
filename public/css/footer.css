@@ -50,7 +50,7 @@
 }
 
 
-@media (max-width: 420px) { /* medida a usar en celus */
+@media (max-width: 768px) { /* medida a usar en celus */
 
   .footer-contenido {
     flex-direction: column;
