@@ -3,8 +3,10 @@ const productModel = require("../models/productModel");
 const productController = {
     home: (req, res) => {
         const suggestedProducts = productModel.getSuggestedProducts();
-        res.render("paginas/index", {suggestedProducts});
+        const featuredProducts = productModel.getFeaturedProducts();
+        res.render("paginas/index", { suggestedProducts, featuredProducts });
     }
+
 }
 
 module.exports = productController;

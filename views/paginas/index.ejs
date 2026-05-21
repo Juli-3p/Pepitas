@@ -16,20 +16,37 @@
                     <img src="<%= product.image || '/imagen/fallback.png' %>" alt="<%= product.name %>">
                 </a>
             </div>
-            <h3>
-                <%= product.name %>
-            </h3>
-            <p class="precio">
-                $<%= product.price %>
-            </p>
+            <h3><%= product.name %></h3>
+            <p class="precio">$<%= product.price %></p>
             <form action="/vistProd/<%= product.id %>" method="GET">
-                <button>
-                    Ver Producto
-                </button>
+                <button>Ver Producto</button>
             </form>
         </article>
     <% }) %>
 </section>
+<h2 class="titulo-seccion">
+    Los más pedidos
+</h2>
+<div class="carrusel-container">
+    <button class="btn-carrusel izquierda">&#10094;</button>
+    <section class="productos-container" id="sliderProductos">
+        <% featuredProducts.forEach(product => { %>
+            <article class="producto">
+                <div class="imagen">
+                    <a href="/vistProd/<%= product.id %>">
+                        <img src="<%= product.image || '/imagen/fallback.png' %>" alt="<%= product.name %>">
+                    </a>
+                </div>
+                <h3><%= product.name %></h3>
+                <p class="precio">$<%= product.price %></p>
+                <form action="/vistProd/<%= product.id %>" method="GET">
+                    <button>Ver Producto</button>
+                </form>
+            </article>
+        <% }) %>
+    </section>
+    <button class="btn-carrusel derecha">&#10095;</button>
+</div>
 <h2>Termos</h2>
 <section id="Termos">
     <article class="producto">

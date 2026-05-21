@@ -1,7 +1,6 @@
 body{
     background-color: #D8EDDE;
 }
-
 section{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
@@ -13,7 +12,6 @@ section{
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .producto {
     display: flex;
     flex-direction: column;
@@ -27,7 +25,6 @@ section{
     color: white;
     transition: transform 0.3s ease;
 }
-
 @media (max-width: 768px) {
     section {
         grid-template-columns: repeat(2, minmax(160px, 1fr));
@@ -61,7 +58,6 @@ section{
         font-size: 13px;
     }
 }
-
 .producto form {
     display: flex;
     flex-direction: column;
@@ -70,11 +66,9 @@ section{
     width: 100%;
     margin-top:auto;
 }
-
 .producto:hover {
     transform: scale(1.05);
 }
-
 .imagen {
     width: 100%;
     height: 160px;
@@ -82,7 +76,6 @@ section{
     border-radius: 10px;
     margin-bottom: 10px;
 }
-
 .imagen img {
     width: 100%;
     height: 100%;
@@ -90,31 +83,25 @@ section{
     transition: all 0.4s ease;
     border-radius: 5%;
 }
-
 .producto:hover .imagen img {
     object-fit: contain;
     transform: scale(1.1);
 }
-
 .producto h3 {
     font-size: 18px;
     margin: 10px 0 5px;
 }
-
 .precio {
     font-size: 16px;
     color: #00d084;
     margin-bottom: 8px;
 }
-
 .producto > button {
     margin-top: auto;
 }
-
 .producto form button {
      margin:auto;
 }
-
 .producto button {
     background-color: #00d084;
     border: none;
@@ -125,7 +112,43 @@ section{
     width: 100%;
    
 }
-
 .producto button:hover {
     background-color: #00a86b;
+}
+.carrusel-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+.productos-container{
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px;
+}
+.productos-container::-webkit-scrollbar{
+    display: none;
+}
+.producto{
+    min-width: 250px;
+    flex-shrink: 0;
+}
+.btn-carrusel{
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+.izquierda{
+    left: 0;
+}
+.derecha{
+    right: 0;
 }
