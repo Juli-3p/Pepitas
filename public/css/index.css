@@ -7,12 +7,17 @@ section{
     grid-auto-rows: auto;
     justify-content: center;
     align-items: stretch;
-    gap: 20px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-}
 
+}
+#Termos,
+#Mates,
+#Yerbera,
+#Bombillas{
+    gap: 42px;
+}
 .category-page {
     display: block;
     max-width: 1200px;
@@ -139,13 +144,11 @@ section{
     width: 1200px;
     margin: auto;
     position: relative;
-    display: flex;
-    align-items: center;
+    overflow: hidden;
 }
 .viewport{
-    width: calc((220px * 5) + (20px * 4));
+    width: 1200px;
     overflow: hidden;
-    margin: auto;
 }
 .productos-container{
     display: flex;
@@ -160,21 +163,19 @@ section{
 }
 .btn{
     position: absolute;
-    z-index: 20;
-
+    top: 40%;
+    transform: translateY(-50%);
     width: 45px;
     height: 45px;
-
     border: none;
     border-radius: 50%;
-
-    cursor: pointer;
-
     font-size: 22px;
+    cursor: pointer;
+    z-index: 20;
 }
 .izquierda{
-    left: -20px;
+    left: 5px;
 }
 .derecha{
-    right: -20px;
+    right: 5px;
 }
