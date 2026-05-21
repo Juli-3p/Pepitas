@@ -9,7 +9,7 @@ const app = express();
 
 const port = 5000;
 
-console.log("APP FILE LOADED"); //Check en consola para saber si funciona
+console.log("APP FILE LOADED");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src/views"));
@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 
 app.get('/carrito', (req, res) => {
 
-    console.log("MY CARRITO ROUTE RUNNING"); //Check en consola
+    console.log("MY CARRITO ROUTE RUNNING");
 
     const carritoCompleto = (req.session.cart || []).map(item => {
 
@@ -50,8 +50,13 @@ app.get('/carrito', (req, res) => {
 
     });
 
+    const total = carritoCompleto.reduce((acc, producto) => {
+        return acc + (producto.price * producto.quantity);
+    }, 0);
+
     res.render('paginas/carrito', {
-        carrito: carritoCompleto
+        carrito: carritoCompleto,
+        total: total
     });
 
 });
@@ -83,6 +88,62 @@ app.get('/agregar/:id', (req, res) => {
     }
 
     console.log(req.session.cart);
+
+    res.redirect('/carrito');
+
+});
+
+app.get('/restar/:id', (req, res) => {
+
+    if (!req.session.cart) {
+        req.session.cart = [];
+    }
+
+    const productId = parseInt(req.params.id);
+
+    const productoEnCarrito =
+        req.session.cart.find(
+            item => item.productId === productId
+        );
+
+    if (productoEnCarrito) {
+
+        productoEnCarrito.quantity--;
+
+        // if quantity reaches 0, remove product
+        if (productoEnCarrito.quantity <= 0) {
+
+            req.session.cart = req.session.cart.filter(
+                item => item.productId !== productId
+            );
+
+        }
+
+    }
+
+    res.redirect('/carrito');
+
+});
+
+app.get('/quitar/:id', (req, res) => {
+
+    if (!req.session.cart) {
+        req.session.cart = [];
+    }
+
+    const productId = parseInt(req.params.id);
+
+    req.session.cart = req.session.cart.filter(
+        item => item.productId !== productId
+    );
+
+    res.redirect('/carrito');
+
+});
+
+app.get('/vaciar-carrito', (req, res) => {
+
+    req.session.cart = [];
 
     res.redirect('/carrito');
 
