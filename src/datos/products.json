@@ -66,7 +66,7 @@
     {
         "id": 9,
         "name": "Porta Yerbera Azucarera Wanderlust",
-        "category": "Yerberas/Azucareras",
+        "category": "Yerberas",
         "price": 10796,
         "image": "/imagen/yerbera.png",
         "featured":true
@@ -74,7 +74,7 @@
     {
         "id": 10,
         "name": "Latas Yerbera Azucarera Set Matero",
-        "category": "Yerberas/Azucareras",
+        "category": "Yerberas",
         "price": 7211,
         "image": "/imagen/yerbera 2.png",
         "featured":true
@@ -82,7 +82,7 @@
     {
         "id": 11,
         "name": "Latas Yerbera Azucarera Set Matero Stanley",
-        "category": "Yerberas/Azucareras",
+        "category": "Yerberas",
         "price": 8370,
         "image": "/imagen/yerbera 3.png",
         "featured":true
@@ -90,7 +90,7 @@
     {
         "id": 12,
         "name": "Mates Pampa Set Yerbera Azucarera",
-        "category": "Yerberas/Azucareras",
+        "category": "Yerberas",
         "price": 32999,
         "image": "/imagen/yerbera 4.png",
         "featured":false

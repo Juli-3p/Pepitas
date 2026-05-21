@@ -7,9 +7,7 @@ const authRoute = require("./src/routes/autenticacion");
 
 const app = express();
 
-const port = 5000;
-
-console.log("APP FILE LOADED");
+const port = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src/views"));
@@ -176,11 +174,15 @@ app.post('/vistProd', (req, res) => {
 });
 
 
+app.get("/checkout", (req, res) => {
+  
+  res.status(200).render("paginas/checkout");//checkout
+});
 
 app.use((req,res) => {
     res.status(404).render("paginas/404");
 });
 
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Aplicacion funcionando en el puerto ${port}`);
+app.listen(port, () =>{
+    console.log("Aplicacion meneando la chapa");
 });

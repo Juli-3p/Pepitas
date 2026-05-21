@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/css/index.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="principal">
+
+<%- include('../partials/header') %>
+
+<div class="category-page">
+    <h1 style="text-align:center;border-bottom: 2px solid #0b2b26; padding-bottom: 10px;">Categoría: <%= categoryName || 'Desconocida' %></h1>
+
+    <% if (products && products.length > 0) { %>
+        <section class="productos-container">
+            <% products.forEach(product => { %>
+                <%- include('../partials/productCard', { product }) %>
+            <% }) %>
+        </section>
+    <% } else { %>
+        <div class="empty-category">
+            <h2>No encontramos productos en esta categoría.</h2>
+            <p>Intenta con otra categoría o vuelve al inicio para seguir navegando.</p>
+        </div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>
+
+</div>

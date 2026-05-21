@@ -5,6 +5,14 @@ const productController = {
         const suggestedProducts = productModel.getSuggestedProducts();
         const featuredProducts = productModel.getFeaturedProducts();
         res.render("paginas/index", { suggestedProducts, featuredProducts });
+    },
+    category: (req, res) => {
+        const categorySlug = decodeURIComponent(req.params.category || '').trim().toLowerCase();
+        const products = productModel.getProductsByCategorySlug(categorySlug);
+        const categoryName = products.length > 0
+            ? products[0].category
+            : categorySlug.replace(/-/g, ' ');
+        res.render("paginas/categories", { categoryName, products });
     }
 
 }

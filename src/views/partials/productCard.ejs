@@ -1,0 +1,12 @@
+<article class="producto">
+    <div class="imagen">
+        <a href="/vistProd/<%= product.id %>">
+            <img src="<%= product.image %>" alt="<%= product.name %>">
+        </a>
+    </div>
+    <h3><%= product.name %></h3>
+    <p class="precio">$<%= product.price %></p>
+    <form action="/vistProd/<%= product.id %>" method="GET">
+        <button>Ver Producto</button>
+    </form>
+</article>
