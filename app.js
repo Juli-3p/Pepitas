@@ -1,4 +1,5 @@
 const express = require ('express');
+const productRoute = require("./src/routes/productRoute");
 
 const app = express();
 
@@ -6,6 +7,7 @@ const port = 3000;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use("/", productRoute);
 
 app.get('/',(req,res) => res.render("../views/paginas/index")); //inicio
 
@@ -37,4 +39,8 @@ app.post('/vistProd', (req, res) => {
 
 app.listen(port, () =>{
     console.log("Aplicacion funcionando en el puerto");
+});
+
+app.use((req,res) => {
+    res.status(404).render("../views/paginas/404");
 });
