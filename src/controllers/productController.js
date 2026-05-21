@@ -1,4 +1,5 @@
 const productModel = require("../models/productModel");
+const product = require("../datos/products.json");
 
 const productController = {
     home: (req, res) => {
@@ -13,8 +14,15 @@ const productController = {
             ? products[0].category
             : categorySlug.replace(/-/g, ' ');
         res.render("paginas/categories", { categoryName, products });
+    },
+    detail: (req, res) => {
+        res.send("detalle");
+    },
+    vistProd: (req, res) => {
+        res.render("paginas/vistProd");
     }
 
 }
+
 
 module.exports = productController;

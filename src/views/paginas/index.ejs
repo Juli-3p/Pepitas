@@ -12,13 +12,13 @@
     <% suggestedProducts.forEach(product => { %>
         <article class="producto">
             <div class="imagen">
-                <a href="/vistProd/<%= product.id %>">
+                <a href="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '#' %>">
                     <img src="<%= product.image || '/imagen/fallback.png' %>" alt="<%= product.name %>">
                 </a>
             </div>
             <h3><%= product.name %></h3>
             <p class="precio">$<%= product.price %></p>
-            <form action="/vistProd/<%= product.id %>" method="GET">
+            <form action="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '#' %>" method="GET">
                 <button>Ver Producto</button>
             </form>
         </article>

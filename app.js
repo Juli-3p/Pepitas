@@ -150,8 +150,6 @@ app.get('/vaciar-carrito', (req, res) => {
 app.use("/", productRoute);
 app.use("/", authRoute);
 
-app.get('/',(req,res) => res.render("paginas/index")); //inicio
-
 app.post('/', (req, res) => {
     res.redirect('/vistProd');
 });
@@ -166,8 +164,6 @@ app.get('/registro',(req,res) => res.render("paginas/registro")); //registro
 
 
 app.get('/pago',(req,res) => res.render("paginas/pago")); //pago
-
-app.get('/vistProd',(req,res) => res.render("paginas/vistProd")); //pago
 
 app.post('/vistProd', (req, res) => {
     res.redirect('/carrito');
