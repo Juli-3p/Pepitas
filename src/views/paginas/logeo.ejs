@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/logeo.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="principal">    
+<header class="header" style="padding: 1em; margin-bottom: 1em">
+<link rel="stylesheet" href="/css/header.css">
+  
+  <a href="/">
+  <img src="/imagen/logo_pepitas.png" alt="Pepitas">
+  </a>
+
+  <div class="seccion">   
+    <div class="usuario">...</div>
+  </div>
+
+</header>
+
+    <div class="logeo">
+        <h1>¡Inicia Sesión!</h1>
+
+        <form action="/logeo" method="POST">
+            <input type="text" placeholder="Usuario" name="usuario" required>
+            <input type="password" placeholder="Contraseña" name="contraseña" required>
+            <button type="submit">Ingresar</button>
+        </form>
+        <p>¿No tienes una cuenta? <a class="enlaceRegistro" href="/registro">Regístrate aquí</a></p>
+
+    </div>
+
+<%- include('../partials/ventanaInicio') %>
+
+<%- include('../partials/footer') %>
+
+</div>
+
+<script>
+    const ventanita = document.querySelector(".usuario");
+    const ventanita2 = document.querySelector(".ventanaInicio");
+
+    ventanita.addEventListener('click', () => {
+        if (ventanita2.classList.contains("oculto")) {
+            ventanita2.classList.remove("oculto");
+            ventanita2.classList.add("visible");
+        } else {
+            ventanita2.classList.remove("visible");
+            ventanita2.classList.add("oculto");
+        }
+    })
+</script>
