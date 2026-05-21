@@ -183,7 +183,7 @@ app.get("/checkout", (req, res) => {
   res.status(200).render("paginas/checkout");//checkout
 });
 
-// 500 - Server Error (debe venir ANTES del 404)
+// 500 - Server Error 
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).render("paginas/500");
