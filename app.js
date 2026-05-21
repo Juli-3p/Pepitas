@@ -184,9 +184,21 @@ app.get("/checkout", (req, res) => {
   res.status(200).render("paginas/checkout");//checkout
 });
 
-app.use((req,res) => {
+// 500 - Server Error 
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).render("paginas/500");
+});
+
+// 404 - Not Found
+app.use((req, res) => {
     res.status(404).render("paginas/404");
 });
+
+app.listen(port, () => {
+    console.log(`Servidor ejecutándose en http://localhost:${port}`);
+});
+
 
 app.listen(port, () =>{
     console.log("Aplicacion meneando la chapa");
