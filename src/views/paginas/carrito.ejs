@@ -10,70 +10,53 @@
     <h2>Productos en tu Carrito</h2>
 
     <section id="ProductosCarrito">
-      <article class="producto">
-        <div class="izquierda">
-          <div class="imagen">
-            <img src="/imagen/termo.png">
-          </div>
-          <div class="ProductInfo">
-            <h3>Termo Ozz 1l Doble Pared Con Pico Cebador Y 360°</h3>
-          </div>
-        </div>
-        <div class="derecha">
-          <button><b>Quitar</b></button>
 
-          <div class="cantidad">
-            <button class="menos">-</button>
-            <input type="text" value="1" readonly>
-            <button class="mas">+</button>
-          </div>
+        <% (carrito || []).forEach(producto => { %>
 
-          <p class="precio">$29.999</p>
-        </div>
-      </article>
-      
-      <article class="producto">
+        <article class="producto">
+
           <div class="izquierda">
+
             <div class="imagen">
-              <img src="/imagen/mate 3.png">
+              <img src="<%= producto.image %>">
             </div>
+
             <div class="ProductInfo">
-              <h3>Mate Térmico De Acero Inox. Doble Pared - 160 Ml Color Azul 160ml</h3>
+              <h3><%= producto.name %></h3>
             </div>
-          </div>
-        <div class="derecha">
-          <button><b>Quitar</b></button>
 
-          <div class="cantidad">
-            <button class="menos">-</button>
-            <input type="text" value="1" readonly>
-            <button class="mas">+</button>
           </div>
 
-          <p class="precio">$15.895</p>
-        </div>
-      </article>
-      <article class="producto">
-        <div class="izquierda">
-          <div class="imagen">
-            <img src="/imagen/bombilla.png">
-          </div>
-          <div class="ProductInfo">
-            <h3>Bombilla Alpaca Curva Uruguaya Pico De Loro Chata Plana</h3>
-          </div>
-        </div>
-        <div class="derecha">
-          <button><b>Quitar</b></button>
+          <div class="derecha">
 
-          <div class="cantidad">
-            <button class="menos">-</button>
-            <input type="text" value="1" readonly>
-            <button class="mas">+</button>
+            <a href="/quitar/<%= producto.id %>">
+              <button><b>Quitar</b></button>
+            </a>
+
+            <div class="cantidad">
+
+              <button class="menos">-</button>
+
+              <input
+                type="text"
+                value="<%= producto.quantity %>"
+                readonly
+              >
+
+              <button class="mas">+</button>
+
+            </div>
+
+            <p class="precio">
+              $<%= (producto.price * producto.quantity).toLocaleString('es-AR') %>
+            </p>
+
           </div>
 
-          <p class="precio">$13.197</p>
-        </div>
-      </article>
+        </article>
+
+      <% }) %>
+
     </section>
     <section>
       <article class="Pagar">
