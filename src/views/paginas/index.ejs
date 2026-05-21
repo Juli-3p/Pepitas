@@ -38,13 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
     <% suggestedProducts.forEach(product => { %>
         <article class="producto">
             <div class="imagen">
-                <a href="<%= product.name.includes('Termo Ozz') ? '/products/' + product.id : '/producto-no-encontrado' %>">
+                <a href="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>">
                     <img src="<%= product.image || '/imagen/fallback.png' %>" alt="<%= product.name %>">
                 </a>
             </div>
             <h3><%= product.name %></h3>
             <p class="precio">$<%= product.price %></p>
-            <form action="<%= product.name.includes('Termo Ozz') ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
                 <button>Ver Producto</button>
             </form>
         </article>
@@ -60,13 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
             <% featuredProducts.forEach(product => { %>
                 <article class="producto">
                     <div class="imagen">
-                        <a href="<%= product.name.includes('Termo Ozz') ? '/products/' + product.id : '/producto-no-encontrado' %>">
+                        <a href="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>">
                             <img src="<%= product.image %>" alt="<%= product.name %>">
                         </a>
                     </div>
                     <h3><%= product.name %></h3>
                     <p class="precio">$<%= product.price %></p>
-                    <form action="<%= product.name.includes('Termo Ozz') ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+                    <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
                         <button>Ver Producto</button>
                     </form>
                 </article>
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Termo Ozz 1Lt Doble Pared Con Pico Cebador Y 360°</h3> 
         <p class="precio">$29.999</p> 
-        <form action="/" method="POST"> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
             <button>Ver Producto</button> 
         </form> 
     </article> 
@@ -95,7 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Termo 1 L Manija Pico Matero Acero inoxidable</h3> 
         <p class="precio">$25.980</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form>
     </article> 
     <article class="producto"> 
         <div class="imagen"> 
@@ -103,7 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Termo South Port TERMO07X 1.3L negro</h3> 
         <p class="precio">$40.199</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form> 
     </article> 
     <article class="producto"> 
         <div class="imagen"> 
@@ -111,7 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Termo Sumate 1 Litro Acero Inoxidable</h3> 
         <p class="precio">$26.808</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form> 
     </article> 
 </section> 
 <h2>Mates</h2>
@@ -122,7 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Mate Madai De Acero Inoxidable 306</h3> 
         <p class="precio">$18.218</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form>
     </article> 
     <article class="producto"> 
         <div class="imagen"> 
@@ -130,7 +138,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Mate Térmico Mapa Argentina Acero Inoxidable</h3> 
         <p class="precio">$11.700</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form>
     </article> 
     <article class="producto"> 
         <div class="imagen"> 
@@ -138,7 +148,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Mate Térmico De Acero Inox. Color Azul 160ml</h3> 
         <p class="precio">$15.985</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form>
     </article> 
     <article class="producto"> 
         <div class="imagen"> 
@@ -146,7 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Yhyb Mate De Yerba Mate No Tóxica Y Sin Sabor</h3> 
         <p class="precio">$14.154</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form>
     </article> 
 </section> 
 <h2>Yerberas/Azucareras</h2>
@@ -157,7 +171,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Porta Yerbera Azucarera Wanderlust</h3> 
         <p class="precio">$10.796</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form>
     </article> 
     <article class="producto"> 
         <div class="imagen"> 
@@ -165,7 +181,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Latas Yerbera Azucarera Set Matero</h3> 
         <p class="precio">$7.210</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form>
     </article> 
     <article class="producto"> 
         <div class="imagen"> 
@@ -173,7 +191,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Latas Yerbera Azucarera Set Matero Stanley</h3> 
         <p class="precio">$8.370</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form>
     </article> 
     <article class="producto"> 
         <div class="imagen"> 
@@ -181,7 +201,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Mate Pampa Set Yerbera Azucarera</h3> 
         <p class="precio">$32.999</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form>
     </article> 
 </section> 
 <h2>Bombillas</h2>
@@ -192,7 +214,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Bombilla Alpaca Curva Uruguaya Pico De Loro Chata Plana</h3> 
         <p class="precio">$13.197</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form>
     </article> 
     <article class="producto"> 
         <div class="imagen"> 
@@ -200,7 +224,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Bombilla Estribo Inoxidable EL SANTO MATE </h3> 
         <p class="precio">$3.699</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form>
     </article> 
     <article class="producto"> 
         <div class="imagen"> 
@@ -208,7 +234,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Bombilla Pico Loro Acero Inoxidable Para Mate</h3> 
         <p class="precio">$5.999</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form>
     </article> 
     <article class="producto"> 
         <div class="imagen"> 
@@ -216,7 +244,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div> 
         <h3>Bombilla Chata Acero Inoxidable EL SANTO MATE 17cm</h3> 
         <p class="precio">$4.499</p> 
-        <button>Ver Producto</button> 
+        <form action="<%= product.id ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
+            <button>Ver Producto</button> 
+        </form>
     </article> 
 </section>
 
