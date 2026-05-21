@@ -27,22 +27,28 @@
 <h2 class="titulo-seccion">
     Los más pedidos
 </h2>
-<section class="productos-container">
-    <% featuredProducts.forEach(product => { %>
-        <article class="producto">
-            <div class="imagen">
-                <a href="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '#' %>">
-                    <img src="<%= product.image || '/imagen/fallback.png' %>" alt="<%= product.name %>">
-                </a>
-            </div>
-            <h3><%= product.name %></h3>
-            <p class="precio">$<%= product.price %></p>
-            <form action="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '#' %>" method="GET">
-                <button>Ver Producto</button>
-            </form>
-        </article>
-    <% }) %>
-</section>
+<div class="carrusel">
+    <button class="btn izquierda" onclick="moverIzquierda()">❮</button>
+    <div class="viewport">
+        <section class="productos-container" id="productosContainer">
+            <% featuredProducts.forEach(product => { %>
+                <article class="producto">
+                    <div class="imagen">
+                        <a href="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '#' %>">
+                            <img src="<%= product.image || '/imagen/fallback.png' %>" alt="<%= product.name %>">
+                        </a>
+                    </div>
+                    <h3><%= product.name %></h3>
+                    <p class="precio">$<%= product.price %></p>
+                    <form action="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '#' %>" method="GET">
+                        <button>Ver Producto</button>
+                    </form>
+                </article>
+            <% }) %>
+        </section>
+    </div>
+    <button class="btn derecha" onclick="moverDerecha()">❯</button>
+</div>
 <h2>Termos</h2>
 <section id="Termos">
     <article class="producto">
@@ -191,3 +197,30 @@
 <%- include('../partials/footer') %>
 
 </div>
+<script>
+
+let posicion = 0;
+
+function moverDerecha(){
+
+    const container =
+        document.getElementById("productosContainer");
+
+    posicion = -1180;
+
+    container.style.transform =
+        `translateX(${posicion}px)`;
+}
+
+function moverIzquierda(){
+
+    const container =
+        document.getElementById("productosContainer");
+
+    posicion = 0;
+
+    container.style.transform =
+        `translateX(${posicion}px)`;
+}
+
+</script>

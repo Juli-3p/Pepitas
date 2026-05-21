@@ -135,3 +135,44 @@ section{
 .producto button:hover {
     background-color: #00a86b;
 }
+.carrusel{
+    width: 1200px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.viewport{
+    width: 1160px;
+    overflow: hidden;
+}
+.productos-container{
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+}
+.producto{
+    min-width: 216px;
+    max-width: 216px;
+    flex-shrink: 0;
+}
+.btn{
+    position: absolute;
+    z-index: 20;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 22px;
+}
+.izquierda{
+    left: -20px;
+}
+.derecha{
+    right: -20px;
+}
