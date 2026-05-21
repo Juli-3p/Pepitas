@@ -8,11 +8,16 @@ const app = express();
 const port = 3000;
 
 app.set("view engine", "ejs");
+
 app.set("views", path.join(__dirname, "src", "views"));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 app.use(express.static(path.join(__dirname, "public")));
+
 app.use("/", productRoute);
+
 app.use("/", authRoute);
 
 app.get('/',(req,res) => res.render("paginas/index")); //inicio
@@ -38,6 +43,13 @@ app.get('/vistProd',(req,res) => res.render("paginas/vistProd")); //pago
 app.post('/vistProd', (req, res) => {
     res.redirect('/carrito');
 });
+
+
+app.get("/checkout", (req, res) => {
+  
+  res.status(200).render("paginas/checkout");//checkout
+});
+
 
 app.listen(port, () =>{
     console.log("Aplicacion funcionando en el puerto");
