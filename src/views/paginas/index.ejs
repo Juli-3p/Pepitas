@@ -7,41 +7,26 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const slider = document.getElementById("slider");
-
     const btnDer = document.getElementById("btnDer");
-
     const btnIzq = document.getElementById("btnIzq");
 
     let posicion = 0;
-
     btnDer.addEventListener("click", () => {
-
         posicion -= 1200;
-
         const limite = -(slider.scrollWidth - 1200);
-
         if(posicion < limite){
             posicion = limite;
         }
-
         slider.style.transform = `translateX(${posicion}px)`;
-
     });
-
     btnIzq.addEventListener("click", () => {
-
         posicion += 1200;
-
         if(posicion > 0){
             posicion = 0;
         }
-
         slider.style.transform = `translateX(${posicion}px)`;
-
     });
-
 });
-
 </script>
 
 <%- include('../partials/header') %>
@@ -53,13 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
     <% suggestedProducts.forEach(product => { %>
         <article class="producto">
             <div class="imagen">
-                <a href="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '#' %>">
+                <a href="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '/producto-no-encontrado' %>">
                     <img src="<%= product.image || '/imagen/fallback.png' %>" alt="<%= product.name %>">
                 </a>
             </div>
             <h3><%= product.name %></h3>
             <p class="precio">$<%= product.price %></p>
-            <form action="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '#' %>" method="GET">
+            <form action="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '/producto-no-encontrado' %>" method="GET">
                 <button>Ver Producto</button>
             </form>
         </article>
@@ -69,41 +54,26 @@ document.addEventListener("DOMContentLoaded", () => {
     Los más pedidos
 </h2>
 <div class="carrusel">
-
     <button type="button" class="btn izquierda" id="btnIzq">❮</button>
-
     <div class="viewport">
-
         <div class="productos-container" id="slider">
-
             <% featuredProducts.forEach(product => { %>
-
                 <article class="producto">
-
                     <div class="imagen">
-                        <a href="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '#' %>">
+                        <a href="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '/producto-no-encontrado' %>">
                             <img src="<%= product.image %>" alt="<%= product.name %>">
                         </a>
                     </div>
-
                     <h3><%= product.name %></h3>
-
                     <p class="precio">$<%= product.price %></p>
-
-                    <form action="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '#' %>" method="GET">
+                    <form action="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '/producto-no-encontrado' %>" method="GET">
                         <button>Ver Producto</button>
                     </form>
-
                 </article>
-
             <% }) %>
-
         </div>
-
     </div>
-
     <button type="button" class="btn derecha" id="btnDer">❯</button>
-
 </div>  
 <h2>Termos</h2>
 <section id="Termos">
@@ -123,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="imagen"> 
             <img src="/imagen/termo 2.png"> 
         </div> 
-        <h3>Termo 1 L Media Manija Pico Matero Acero inoxidable</h3> 
+        <h3>Termo 1 L Manija Pico Matero Acero inoxidable</h3> 
         <p class="precio">$25.980</p> 
         <button>Ver Producto</button> 
     </article> 
@@ -166,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="imagen"> 
             <img src="/imagen/mate 3.png"> 
         </div> 
-        <h3>Mate Térmico De Acero Inox. Doble Pared - 160 Ml Color Azul 160ml</h3> 
+        <h3>Mate Térmico De Acero Inox. Color Azul 160ml</h3> 
         <p class="precio">$15.985</p> 
         <button>Ver Producto</button> 
     </article> 
@@ -174,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="imagen"> 
             <img src="/imagen/mate 4.png"> 
         </div> 
-        <h3>Yhyb Mate De Yerba Mate No Tóxica Y Sin Sabor - Juego Yb</h3> 
+        <h3>Yhyb Mate De Yerba Mate No Tóxica Y Sin Sabor</h3> 
         <p class="precio">$14.154</p> 
         <button>Ver Producto</button> 
     </article> 
@@ -228,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="imagen"> 
             <img src="/imagen/bombilla 2.png"> 
         </div> 
-        <h3>Bombilla Estribo Acero Inoxidable EL SANTO MATE </h3> 
+        <h3>Bombilla Estribo Inoxidable EL SANTO MATE </h3> 
         <p class="precio">$3.699</p> 
         <button>Ver Producto</button> 
     </article> 
@@ -236,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="imagen"> 
             <img src="/imagen/bombilla 3.png"> 
         </div> 
-        <h3>Bombilla Pico Loro Acero Inoxidable Bronce Filtro Cuchara Para Mate</h3> 
+        <h3>Bombilla Pico Loro Acero Inoxidable Para Mate</h3> 
         <p class="precio">$5.999</p> 
         <button>Ver Producto</button> 
     </article> 
@@ -244,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="imagen"> 
             <img src="/imagen/bombilla 4.png"> 
         </div> 
-        <h3>Bombilla Chata Acero Inoxidable EL SANTO MATE Grabada Laser Bronce 17cm</h3> 
+        <h3>Bombilla Chata Acero Inoxidable EL SANTO MATE 17cm</h3> 
         <p class="precio">$4.499</p> 
         <button>Ver Producto</button> 
     </article> 

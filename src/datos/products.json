@@ -9,7 +9,7 @@
     },
     {
         "id": 2,
-        "name": "Termo 1 L Media Manija Pico Matero Acero inoxidable",
+        "name": "Termo 1 L Manija Pico Matero Acero inoxidable",
         "category": "Termos",
         "price": 25980,
         "image": "/imagen/termo 2.png",
@@ -49,7 +49,7 @@
     },
     {
         "id": 7,
-        "name": "Mate Térmico De Acero Inox. Doble Pared - 160 Ml Color Azul 160ml",
+        "name": "Mate Térmico De Acero Inox. Color Azul 160ml",
         "category": "Mates",
         "price": 15985,
         "image": "/imagen/mate 3.png",
@@ -57,7 +57,7 @@
     },
     {
         "id": 8,
-        "name": "Yhyb Mate De Yerba Mate No Tóxica Y Sin Sabor - Juego Yb",
+        "name": "Yhyb Mate De Yerba Mate No Tóxica Y Sin Sabor",
         "category": "Mates",
         "price": 14154,
         "image": "/imagen/mate 4.png",
@@ -105,7 +105,7 @@
     },
     {
         "id": 14,
-        "name": "Bombilla Estribo Acero Inoxidable EL SANTO MATE",
+        "name": "Bombilla Estribo Inoxidable EL SANTO MATE",
         "category": "Bombillas",
         "price": 3699,
         "image": "/imagen/bombilla 2.png",
@@ -113,7 +113,7 @@
     },
     {
         "id": 15,
-        "name": "Bombilla Acero Inoxidable Curva Pico De Loro Chata Plana",
+        "name": "Bombilla Pico Loro Acero Inoxidable Para Mate",
         "category": "Bombillas",
         "price": 5999,
         "image": "/imagen/bombilla 3.png",
@@ -121,7 +121,7 @@
     },
     {
         "id": 16,
-        "name": "Bombilla Chata Acero Inoxidable EL SANTO MATE Grabada Laser Bronce 17cm",
+        "name": "Bombilla Chata Acero Inoxidable EL SANTO MATE 17cm",
         "category": "Bombillas",
         "price": 4499,
         "image": "/imagen/bombilla 4.png",
