@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Termo Ozz 1Lt Doble Pared Con Pico Cebador Y 360°",
+        "category": "Termos",
+        "price": 29.999,
+        "image": "/imagen/termo.png"
+    },
+    {
+        "id": 2,
+        "name": "Mate Madai De Acero Inoxidable 306",
+        "category": "Mates",
+        "price": 18.218,
+        "image": "/imagen/mate.png"
+    },
+    {
+        "id": 3,
+        "name": "Bombilla Alpaca Curva Uruguaya Pico De Loro Chata Plana",
+        "category": "Bombillas",
+        "price": 13.197,
+        "image": "/imagen/bombilla.png"
+    },
+    {
+        "id": 4,
+        "name": "Latas Yerbera Azucarera Set Matero",
+        "category": "Yerberas",
+        "price": 7.210,
+        "image": "/imagen/yerbera 2.png"
+    },
+    {
+        "id": 5,
+        "name": "Mate Térmico Mapa Argentina Acero Inoxidable",
+        "category": "Mates",
+        "price": 11.700,
+        "image": "/imagen/mate 2.png"
+    }
+]
