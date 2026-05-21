@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Termo Ozz 1Lt Doble Pared Con Pico Cebador Y 360°",
         "category": "Termos",
-        "price": 29.999,
+        "price": 29999,
         "image": "/imagen/termo.png",
         "featured": true
     },
@@ -11,7 +11,7 @@
         "id": 2,
         "name": "Termo 1 L Media Manija Pico Matero Acero inoxidable",
         "category": "Termos",
-        "price": 25.980,
+        "price": 25980,
         "image": "/imagen/termo 2.png",
         "featured": true
     },
@@ -19,7 +19,7 @@
         "id": 3,
         "name": "Termo South Port TERMO07X 1.3L negro",
         "category": "Termos",
-        "price": 40.199,
+        "price": 40199,
         "image": "/imagen/termo 3.png",
         "featured": true
     },
@@ -27,7 +27,7 @@
         "id": 4,
         "name": "Termo Sumate 1 Litro Acero Inoxidable",
         "category": "Termos",
-        "price": 26.808,
+        "price": 26808,
         "image": "/imagen/termo 4.png",
         "featured": false
     },
@@ -35,7 +35,7 @@
         "id": 5,
         "name": "Mate Madai De Acero Inoxidable 306",
         "category": "Mates",
-        "price": 18.218,
+        "price": 18218,
         "image": "/imagen/mate.png",
         "featured":true
     },
@@ -43,7 +43,7 @@
         "id": 6,
         "name": "Mate Térmico Mapa Argentina Acero Inoxidable",
         "category": "Mates",
-        "price": 11.700,
+        "price": 11700,
         "image": "/imagen/mate 2.png",
         "featured":false
     },
@@ -51,7 +51,7 @@
         "id": 7,
         "name": "Mate Térmico De Acero Inox. Doble Pared - 160 Ml Color Azul 160ml",
         "category": "Mates",
-        "price": 15.985,
+        "price": 15985,
         "image": "/imagen/mate 3.png",
         "featured":true
     },
@@ -59,7 +59,7 @@
         "id": 8,
         "name": "Yhyb Mate De Yerba Mate No Tóxica Y Sin Sabor - Juego Yb",
         "category": "Mates",
-        "price": 14.154,
+        "price": 14154,
         "image": "/imagen/mate 4.png",
         "featured":false
     },
@@ -67,7 +67,7 @@
         "id": 9,
         "name": "Porta Yerbera Azucarera Wanderlust",
         "category": "Yerberas/Azucareras",
-        "price": 10.796,
+        "price": 10796,
         "image": "/imagen/yerbera.png",
         "featured":true
     },
@@ -75,7 +75,7 @@
         "id": 10,
         "name": "Latas Yerbera Azucarera Set Matero",
         "category": "Yerberas/Azucareras",
-        "price": 7.211,
+        "price": 7211,
         "image": "/imagen/yerbera 2.png",
         "featured":true
     },
@@ -83,7 +83,7 @@
         "id": 11,
         "name": "Latas Yerbera Azucarera Set Matero Stanley",
         "category": "Yerberas/Azucareras",
-        "price": 8.370,
+        "price": 8370,
         "image": "/imagen/yerbera 3.png",
         "featured":true
     },
@@ -91,7 +91,7 @@
         "id": 12,
         "name": "Mates Pampa Set Yerbera Azucarera",
         "category": "Yerberas/Azucareras",
-        "price": 32.999,
+        "price": 32999,
         "image": "/imagen/yerbera 4.png",
         "featured":false
     },
@@ -99,7 +99,7 @@
         "id": 13,
         "name": "Bombilla Alpaca Curva Uruguaya Pico De Loro Chata Plana",
         "category": "Bombillas",
-        "price": 13.197,
+        "price": 13197,
         "image": "/imagen/bombilla.png",
         "featured":true
     },
@@ -107,7 +107,7 @@
         "id": 14,
         "name": "Bombilla Estribo Acero Inoxidable EL SANTO MATE",
         "category": "Bombillas",
-        "price": 3.699,
+        "price": 3699,
         "image": "/imagen/bombilla 2.png",
         "featured":true
     },
@@ -115,7 +115,7 @@
         "id": 15,
         "name": "Bombilla Acero Inoxidable Curva Pico De Loro Chata Plana",
         "category": "Bombillas",
-        "price": 5.999,
+        "price": 5999,
         "image": "/imagen/bombilla 3.png",
         "featured":false
     },
@@ -123,7 +123,7 @@
         "id": 16,
         "name": "Bombilla Chata Acero Inoxidable EL SANTO MATE Grabada Laser Bronce 17cm",
         "category": "Bombillas",
-        "price": 4.499,
+        "price": 4499,
         "image": "/imagen/bombilla 4.png",
         "featured":false
     }
