@@ -143,8 +143,9 @@ section{
     align-items: center;
 }
 .viewport{
-    width: 1200px;
+    width: calc((220px * 5) + (20px * 4));
     overflow: hidden;
+    margin: auto;
 }
 .productos-container{
     display: flex;

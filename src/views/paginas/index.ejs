@@ -198,17 +198,29 @@
 
 </div>
 <script>
-let pagina = 0;
+let posicion = 0;
 
 function moverDerecha(){
 
     const container =
         document.getElementById("productosContainer");
 
-    pagina = 1;
+    const card =
+        document.querySelector(".producto");
+
+    const estilo =
+        window.getComputedStyle(container);
+
+    const gap =
+        parseInt(estilo.gap);
+
+    const anchoMovimiento =
+        (card.offsetWidth + gap) * 5;
+
+    posicion = -anchoMovimiento;
 
     container.style.transform =
-        "translateX(-1180px)";
+        `translateX(${posicion}px)`;
 }
 
 function moverIzquierda(){
@@ -216,7 +228,7 @@ function moverIzquierda(){
     const container =
         document.getElementById("productosContainer");
 
-    pagina = 0;
+    posicion = 0;
 
     container.style.transform =
         "translateX(0px)";
