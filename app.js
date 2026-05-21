@@ -27,6 +27,14 @@ app.use((req, res, next) => {
         req.session.cart = [];
     }
 
+    // Calcular total de items en el carrito
+    const cartCount = (req.session.cart || []).reduce((total, item) => {
+        return total + (item.quantity || 1);
+    }, 0);
+
+    // Pasa el conteo del carrito a todas las vistas
+    res.locals.cartCount = cartCount;
+
     next();
 }); //Sesion del carrito
 
