@@ -198,18 +198,17 @@
 
 </div>
 <script>
-
-let posicion = 0;
+let pagina = 0;
 
 function moverDerecha(){
 
     const container =
         document.getElementById("productosContainer");
 
-    posicion = -1180;
+    pagina = 1;
 
     container.style.transform =
-        `translateX(${posicion}px)`;
+        "translateX(-1180px)";
 }
 
 function moverIzquierda(){
@@ -217,10 +216,9 @@ function moverIzquierda(){
     const container =
         document.getElementById("productosContainer");
 
-    posicion = 0;
+    pagina = 0;
 
     container.style.transform =
-        `translateX(${posicion}px)`;
+        "translateX(0px)";
 }
-
 </script>

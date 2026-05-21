@@ -143,7 +143,7 @@ section{
     align-items: center;
 }
 .viewport{
-    width: 1160px;
+    width: 1200px;
     overflow: hidden;
 }
 .productos-container{
@@ -152,8 +152,9 @@ section{
     transition: transform 0.5s ease;
 }
 .producto{
-    min-width: 216px;
-    max-width: 216px;
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
     flex-shrink: 0;
 }
 .btn{
