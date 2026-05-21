@@ -11,6 +11,12 @@
 
     <section id="ProductosCarrito">
 
+      <% if (carrito.length === 0) { %>
+
+        <p>Tu carrito esta vacio.</p>
+
+      <% } %>
+
         <% (carrito || []).forEach(producto => { %>
 
         <article class="producto">
@@ -35,7 +41,9 @@
 
             <div class="cantidad">
 
-              <button class="menos">-</button>
+              <a href="/restar/<%= producto.id %>">
+                <button class="menos">-</button>
+              </a>
 
               <input
                 type="text"
@@ -43,7 +51,9 @@
                 readonly
               >
 
-              <button class="mas">+</button>
+              <a href="/agregar/<%= producto.id %>">
+                <button class="mas">+</button>
+              </a>
 
             </div>
 
@@ -61,34 +71,19 @@
     <section>
       <article class="Pagar">
         <div class="TotalPagar">
-          <p>Total a Pagar: <b>59.181</b></p>
+          <p>
+            Total a Pagar:
+            <b>$<%= total.toLocaleString('es-AR') %></b>
+          </p>
         </div>
-        <div class="Comprar">
+        <div class="VaciarComprar">
+          <a href="/vaciar-carrito">
+            <button><b>Vaciar carrito</b></button>
+          </a>
+
           <button><b>Comprar</b></button>
         </div>
       </article>
     </section>
-
-    <script>
-      document.querySelectorAll('.cantidad').forEach(cantidad => {
-
-        const input = cantidad.querySelector('input');
-        const btnMas = cantidad.querySelector('.mas');
-        const btnMenos = cantidad.querySelector('.menos');
-
-        btnMas.addEventListener('click', () => {
-          input.value = parseInt(input.value) + 1;
-        });
-
-        btnMenos.addEventListener('click', () => {
-          let valor = parseInt(input.value);
-
-          if (valor > 1) {
-            input.value = valor - 1;
-          }
-        });
-
-      });
-    </script>
     
   <%- include('../partials/footer') %>
