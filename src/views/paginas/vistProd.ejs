@@ -7,24 +7,23 @@
 
     <section id="vistProd">
         <article class="producto">
-            <div class="imagenSecun">
-                <img src="/imagen/Termo ozz.png">
-                <img src="/imagen/Termo ozz2.png">
-            </div>
-            <div class="imagen">
-                <img src="/imagen/termo.png">
-            </div>
-            <div class="info">
-                <h3>Termo Ozz 1Lt Doble Pared Con Pico Cebador Y 360°</h3>
-                <p class="precio">$29.999</p>
-                <p class="descripcion">Acero inoxidable de alta calidad con un control avanzado de temperatura. 
-                    Dos picos vertedores intercambiables con precision y vertido normal. 
-                    Diseño moderno elegante y ergonomico. 
-                    Satisfaccion garantizada.</p>
-                <a class="btn-carrito" href="/agregar/1">Agregar producto al carrito</a>
-                </div>
-        </article>
-    </section>
+        <div class="imagenSecun">
+            <img src="<%= product.image || '/imagen/fallback.png' %>" alt="<%= product.name %>">
+            <img src="<%= product.image || '/imagen/fallback.png' %>" alt="<%= product.name %>">
+        </div>
+        <div class="imagen">
+            <img src="<%= product.image || '/imagen/fallback.png' %>" alt="<%= product.name %>">
+        </div>
+        <div class="info">
+            <h3><%= product.name %></h3>
+            <p class="precio">$<%= product.price %></p>
+            <p class="categoria">Categoría: <%= product.category %></p>
+            <p class="descripcion"><%= product.description %></p>
+
+            <a class="btn-carrito" href="/agregar/<%= product.id %>">Agregar producto al carrito</a>
+        </div>
+    </article>
+</section>
     <h2>Productos Relacionados</h2>
 
     <section id="prodRelacionados">
