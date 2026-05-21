@@ -38,13 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
     <% suggestedProducts.forEach(product => { %>
         <article class="producto">
             <div class="imagen">
-                <a href="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '/producto-no-encontrado' %>">
+                <a href="<%= product.name.includes('Termo Ozz') ? '/products/' + product.id : '/producto-no-encontrado' %>">
                     <img src="<%= product.image || '/imagen/fallback.png' %>" alt="<%= product.name %>">
                 </a>
             </div>
             <h3><%= product.name %></h3>
             <p class="precio">$<%= product.price %></p>
-            <form action="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '/producto-no-encontrado' %>" method="GET">
+            <form action="<%= product.name.includes('Termo Ozz') ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
                 <button>Ver Producto</button>
             </form>
         </article>
@@ -60,13 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
             <% featuredProducts.forEach(product => { %>
                 <article class="producto">
                     <div class="imagen">
-                        <a href="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '/producto-no-encontrado' %>">
+                        <a href="<%= product.name.includes('Termo Ozz') ? '/products/' + product.id : '/producto-no-encontrado' %>">
                             <img src="<%= product.image %>" alt="<%= product.name %>">
                         </a>
                     </div>
                     <h3><%= product.name %></h3>
                     <p class="precio">$<%= product.price %></p>
-                    <form action="<%= product.name.includes('Termo Ozz') ? '/vistProd' : '/producto-no-encontrado' %>" method="GET">
+                    <form action="<%= product.name.includes('Termo Ozz') ? '/products/' + product.id : '/producto-no-encontrado' %>" method="GET">
                         <button>Ver Producto</button>
                     </form>
                 </article>

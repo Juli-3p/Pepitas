@@ -157,6 +157,7 @@ app.get('/vaciar-carrito', (req, res) => {
 
 app.use("/", productRoute);
 app.use("/", authRoute);
+app.use("/products", productRoute);
 
 app.post('/', (req, res) => {
     res.redirect('/vistProd');

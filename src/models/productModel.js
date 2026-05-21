@@ -2,8 +2,9 @@ const products = require("../datos/products.json");
 
 const productModel = {
    getSuggestedProducts(){
-      const shuffled = [...products].sort(() => 0.5 - Math.random())
-      return shuffled.slice(0, 5)
+      const shuffled = [...products].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, 5);
+      return products.filter(product => product.suggested);
    },
    getFeaturedProducts(){
       return products.filter(product => product.featured).slice(0,10);
@@ -31,7 +32,13 @@ const productModel = {
          const raw = product.category.trim().toLowerCase();
          return slug === normalizedSlug || raw === normalizedSlug;
       });
-   }
+   },
+   getProductsByCategorySlug: (slug) => {
+        return products.filter(product => product.category.toLowerCase() === slug);
+    },
+   getProductById: (id) => {
+        return products.find(product => product.id == id);
+    }
 }
 
 module.exports = productModel;

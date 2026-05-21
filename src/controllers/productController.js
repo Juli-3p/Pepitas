@@ -20,8 +20,20 @@ const productController = {
     },
     vistProd: (req, res) => {
         res.render("paginas/vistProd");
-    }
-
+    },
+    detail: (req, res) => {
+        const id = req.params.id;
+        const product = productModel.getProductById(id);
+        
+        if (!product) {
+            return res.status(404).render("paginas/404");
+        }
+        const relatedProducts = productModel.getProductsByCategorySlug(product.category.toLowerCase()).filter(p => p.id != product.id).slice(0, 4);
+        
+        res.render("paginas/vistProd", {
+            product, relatedProducts
+        });
+    },
 }
 
 

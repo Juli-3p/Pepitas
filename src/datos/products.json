@@ -1,128 +1,144 @@
 [
     {
         "id": 1,
-        "name": "Termo Ozz 1Lt Doble Pared Con Pico Cebador Y 360°",
+        "name": "Termo Ozz 1Lt",
         "category": "Termos",
+        "description": "Termo Ozz 1l Doble Pared Con Pico Cebador Y 360°",
         "price": 29999,
         "image": "/imagen/termo.png",
         "featured": true
     },
     {
         "id": 2,
-        "name": "Termo 1 L Manija Pico Matero Acero inoxidable",
+        "name": "Termo Inox 1 Lt ",
         "category": "Termos",
+        "description":"Termo 1 L Media Manija Pico Matero Acero inoxidable Doble Capa Color acero Calor/frio",
         "price": 25980,
         "image": "/imagen/termo 2.png",
         "featured": true
     },
     {
         "id": 3,
-        "name": "Termo South Port TERMO07X 1.3L negro",
+        "name": "Termo South Port 1.3 Lt",
         "category": "Termos",
+        "description":"Termo South Port Acero Inoxidable 1.3 Litros Mate Color Negro",
         "price": 40199,
         "image": "/imagen/termo 3.png",
         "featured": true
     },
     {
         "id": 4,
-        "name": "Termo Sumate 1 Litro Acero Inoxidable",
+        "name": "Termo Sumate 1 Lt",
         "category": "Termos",
+        "description":"Termo Sumate 1 Litro Acero Inoxidable Con Manija",
         "price": 26808,
         "image": "/imagen/termo 4.png",
         "featured": false
     },
     {
         "id": 5,
-        "name": "Mate Madai De Acero Inoxidable 306",
+        "name": "Mate Matesur",
         "category": "Mates",
+        "description":"Mate Uruguayo Matesur Imperial Deluxe Personalizado Acero Inox Negro",
         "price": 18218,
         "image": "/imagen/mate.png",
         "featured":true
     },
     {
         "id": 6,
-        "name": "Mate Térmico Mapa Argentina Acero Inoxidable",
+        "name": "Mate Térmico Mapa",
         "category": "Mates",
+        "description":"Mate Térmico Mapa Argentina Acero Inoxidable",
         "price": 11700,
         "image": "/imagen/mate 2.png",
         "featured":false
     },
     {
         "id": 7,
-        "name": "Mate Térmico De Acero Inox. Color Azul 160ml",
+        "name": "Mate Térmico Ozz",
         "category": "Mates",
+        "description":"Mate Térmico De Acero Inox. Doble Pared - 160 Ml Color Azul 160ml",
         "price": 15985,
         "image": "/imagen/mate 3.png",
         "featured":true
     },
     {
         "id": 8,
-        "name": "Yhyb Mate De Yerba Mate No Tóxica Y Sin Sabor",
+        "name": "Yhyd Mate",
         "category": "Mates",
+        "description":"Yhyd Yerba Mate No Tóxica Y Sin Sabor",
         "price": 14154,
         "image": "/imagen/mate 4.png",
         "featured":false
     },
     {
         "id": 9,
-        "name": "Porta Yerbera Azucarera Wanderlust",
+        "name": "Yerbera Azucarera Wanderlust",
         "category": "Yerberas",
+        "description":"Porta Yerbera Azucarera Mate Wanderlust Cierre Tela Color Negro",
         "price": 10796,
         "image": "/imagen/yerbera.png",
         "featured":true
     },
     {
         "id": 10,
-        "name": "Latas Yerbera Azucarera Set Matero",
+        "name": "Yerbera Azucarera Marwal",
         "category": "Yerberas",
+        "description":"Latas Yerbera Azucarera Set Matero",
         "price": 7211,
         "image": "/imagen/yerbera 2.png",
         "featured":true
     },
     {
         "id": 11,
-        "name": "Latas Yerbera Azucarera Set Matero Stanley",
+        "name": "Yerbera Azucarera Stanley",
         "category": "Yerberas",
+        "description":"Latas Yerbera Azucarera Matero Color Verde",
         "price": 8370,
         "image": "/imagen/yerbera 3.png",
         "featured":true
     },
     {
         "id": 12,
-        "name": "Mates Pampa Set Yerbera Azucarera",
+        "name": "Yerbera Azucarera Pampa",
         "category": "Yerberas",
+        "description":"Mate Pampa Set Yerbera Azucarera Pamperas Kit Pico Vertedor",
         "price": 32999,
         "image": "/imagen/yerbera 4.png",
         "featured":false
     },
     {
         "id": 13,
-        "name": "Bombilla Alpaca Curva Uruguaya Pico De Loro Chata Plana",
+        "name": "Bombilla CamperoArg",
         "category": "Bombillas",
+        "description":"Bombilla Alpaca Curva Uruguaya Pico De Loro Chata Plana",
         "price": 13197,
         "image": "/imagen/bombilla.png",
         "featured":true
     },
     {
         "id": 14,
-        "name": "Bombilla Estribo Inoxidable EL SANTO MATE",
+        "name": "Bombilla EL SANTO MATE",
         "category": "Bombillas",
+        "description":"Bombilla Estribo Acero Inoxidable EL SANTO MATE Filtro Removible Gris",
         "price": 3699,
         "image": "/imagen/bombilla 2.png",
         "featured":true
     },
     {
         "id": 15,
-        "name": "Bombilla Pico Loro Acero Inoxidable Para Mate",
+        "name": "Bombilla Laska",
         "category": "Bombillas",
+        "description":"Bombillon Sol De Mayo Caño Grueso Cincelado Alpaca Premium",
         "price": 5999,
         "image": "/imagen/bombilla 3.png",
         "featured":false
     },
     {
         "id": 16,
-        "name": "Bombilla Chata Acero Inoxidable EL SANTO MATE 17cm",
+        "name": "Bombilla EL SANTO MATE",
         "category": "Bombillas",
+        "description":"Bombilla Chata Acero Inoxidable EL SANTO MATE Grabada Laser Bronce 17cm",
         "price": 4499,
         "image": "/imagen/bombilla 4.png",
         "featured":false

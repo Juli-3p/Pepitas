@@ -7,5 +7,6 @@ router.get("/", productController.home);
 router.get("/categories/:category", productController.category);
 router.get("/products/:id", productController.detail);
 router.get("/vistProd", productController.vistProd);
+router.get("/:id", productController.detail);
 
 module.exports = router;
