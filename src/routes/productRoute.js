@@ -25,6 +25,7 @@ router.param("id", (req, res, next, idVal) => {
 
     const idNormalizado = normalizeId(idVal);
 
+    // ERROR 400
     if (idNormalizado === null) {
         return res.status(400).json({error: "El ID debe ser un número válido."});
     }

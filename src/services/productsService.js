@@ -17,6 +17,7 @@ const productsService = {
         return db.prepare(`SELECT * FROM products WHERE id = ?`).get(id);
     },
     searchProducts: (query) => {
+
         if (!query) return [];
         return db.prepare(`SELECT * FROM products WHERE LOWER(name) LIKE LOWER(?)`).all(`%${query}%`);
     },
