@@ -1,5 +1,5 @@
 const productModel = require("../models/productModel");
-const product = require("../datos/products.json");
+const productsJSON = require("../datos/products.json");
 
 const productController = {
     home: (req, res) => {
@@ -15,26 +15,39 @@ const productController = {
             : categorySlug.replace(/-/g, ' ');
         res.render("paginas/categories", { categoryName, products });
     },
-    detail: (req, res) => {
-        res.send("detalle");
-    },
     vistProd: (req, res) => {
-        res.render("paginas/vistProd");
+        // Si se accede a /vistProd sin parámetro, redirige al home
+        console.log(`[productController.vistProd] Accedido a /vistProd sin parámetro`);
+        res.redirect("/");
     },
     detail: (req, res) => {
-        const id = req.params.id;
-        const product = productModel.getProductById(id);
-        
-        if (!product) {
-            return res.status(404).render("paginas/404");
+        try {
+            // El ID ya está normalizado y validado por app.param("id", ...)
+            // Si llega aquí, el ID es válido y el producto existe
+            const product = req.productoEncontrado;
+            
+            console.log(`[productController.detail] Producto recibido:`, product ? `${product.name} (ID: ${product.id})` : "UNDEFINED");
+            
+            if (!product) {
+                console.log(`[productController.detail] ERROR: product es undefined`);
+                return res.status(404).render("paginas/404");
+            }
+
+            const relatedProducts = productModel.getProductsByCategorySlug(product.category.toLowerCase())
+                .filter(p => Number(p.id) !== Number(product.id))
+                .slice(0, 4);
+            
+            console.log(`[productController.detail] Productos relacionados: ${relatedProducts.length}`);
+            
+            res.render("paginas/vistProd", {
+                product, 
+                relatedProducts
+            });
+        } catch (err) {
+            console.error(`[productController.detail] ERROR:`, err.message);
+            res.status(500).render("paginas/500");
         }
-        const relatedProducts = productModel.getProductsByCategorySlug(product.category.toLowerCase()).filter(p => p.id != product.id).slice(0, 4);
-        
-        res.render("paginas/vistProd", {
-            product, relatedProducts
-        });
     },
 }
-
 
 module.exports = productController;

@@ -41,4 +41,6 @@ const productModel = {
     }
 }
 
+
+
 module.exports = productModel;
