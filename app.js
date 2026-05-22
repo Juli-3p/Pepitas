@@ -4,6 +4,7 @@ const path = require('path');
 const productos = require('./src/datos/products.json');
 const productRoute = require("./src/routes/productRoute");
 const authRoute = require("./src/routes/autenticacion");
+const expressLayouts = require('express-ejs-layouts');
 
 const app = express();
 
@@ -14,6 +15,8 @@ app.set("views", path.join(__dirname, "src/views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(expressLayouts);
+app.set('layout','layouts/main');
 
 app.use(session({
     secret: 'pepitas-secret',
@@ -157,19 +160,18 @@ app.get('/vaciar-carrito', (req, res) => {
 
 app.use("/", productRoute);
 app.use("/", authRoute);
-app.use("/products", productRoute);
 
 app.post('/', (req, res) => {
     res.redirect('/vistProd');
 });
 
-app.get('/logeo',(req,res) => res.render("paginas/logeo")); //login
+app.get('/logeo',(req,res) => res.render("paginas/logeo", {layout: false}));
 
 app.post('/logeo', (req, res) => {
     res.redirect('/');
 });
 
-app.get('/registro',(req,res) => res.render("paginas/registro")); //registro
+app.get('/registro',(req,res) => res.render("paginas/registro", {layout: false}));
 
 
 app.get('/pago',(req,res) => res.render("paginas/pago")); //pago
@@ -194,11 +196,6 @@ app.use((err, req, res, next) => {
 app.use((req, res) => {
     res.status(404).render("paginas/404");
 });
-
-app.listen(port, () => {
-    console.log(`Servidor ejecutándose en http://localhost:${port}`);
-});
-
 
 app.listen(port, () =>{
     console.log("Aplicacion meneando la chapa");
