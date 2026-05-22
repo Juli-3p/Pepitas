@@ -26,7 +26,7 @@ const tables = db.prepare(`
   ORDER BY name
 `).all();
 
-console.log('📊 Tablas creadas:');
+console.log(' Tablas creadas:');
 tables.forEach(table => {
   const columns = db.prepare(`PRAGMA table_info(${table.name})`).all();
   console.log(`\n  ✓ ${table.name}`);
@@ -42,10 +42,10 @@ const indexes = db.prepare(`
   ORDER BY name
 `).all();
 
-console.log('\n📇 Índices creados:');
+console.log('\n Índices creados:');
 indexes.forEach(idx => {
   console.log(`  ✓ ${idx.name}`);
 });
 
-console.log('\n✅ Verificación completada\n');
+console.log('\n Verificación lista\n');
 db.close();
