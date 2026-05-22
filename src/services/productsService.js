@@ -1,32 +1,101 @@
-const products = require("../datos/products.json");
+const db = require("../../db/database");
 
 const productsService = {
     getAllProducts: () => {
-        return products;
+
+        return db.prepare(`
+            SELECT
+                id,
+                name,
+                description,
+                price,
+                stock,
+                image_url AS image,
+                active
+            FROM products
+        `).all();
+
     },
     getSuggestedProducts: () => {
-        return products.filter(product => product.stock > 0).slice(0, 4);
+
+        return db.prepare(`
+            SELECT
+                id,
+                name,
+                description,
+                price,
+                stock,
+                image_url AS image,
+                active
+            FROM products
+            WHERE stock > 0
+            LIMIT 4
+        `).all();
+
     },
     getFeaturedProducts: () => {
-        return products.filter(product => product.featured);
+
+        const stmt = db.prepare(`
+            SELECT *
+            FROM products
+            WHERE featured = 1
+        `);
+
+        return stmt.all();
     },
     getProductsByCategorySlug: (category) => {
-        return products.filter(
-            product =>
-                product.category.toLowerCase() ===
-                category.toLowerCase()
-        );
+
+        return db.prepare(`
+            SELECT
+                products.id,
+                products.name,
+                products.description,
+                products.price,
+                products.stock,
+                products.image_url AS image,
+                products.active,
+                categories.name AS category
+            FROM products
+            JOIN categories
+                ON products.category_id = categories.id
+            WHERE LOWER(categories.name) = LOWER(?)
+        `).all(category);
+
     },
 
     getProductById: (id) => {
-        return products.find(
-            product => Number(product.id) === Number(id)
-        );
+
+        return db.prepare(`
+            SELECT
+                id,
+                name,
+                description,
+                price,
+                stock,
+                image_url AS image,
+                active
+            FROM products
+            WHERE id = ?
+        `).get(id);
+
     },
     searchProducts: (query) => {
+
         if (!query) return [];
-        
-        return products.filter(product => product.name.toLowerCase().includes(query.toLowerCase()));
+
+        return db.prepare(`
+            SELECT
+                id,
+                name,
+                description,
+                price,
+                stock,
+                image_url AS image,
+                active
+            FROM products
+            WHERE LOWER(name) LIKE LOWER(?)
+        `).all(`%${query}%`);
+
     },
 
     sortByPriceAsc: (products) => {
