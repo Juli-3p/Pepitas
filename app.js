@@ -1,11 +1,10 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
-
-const productos = require('./src/datos/products.json');
 const productRoute = require("./src/routes/productRoute");
 const authRoute = require("./src/routes/autenticacion");
 const expressLayouts = require('express-ejs-layouts');
+const db = require("./db/database");
 
 const app = express();
 
@@ -71,24 +70,20 @@ app.get('/carrito', (req, res) => {
 
     const carritoCompleto = (req.session.cart || []).map(item => {
 
-        const producto = productos.find(
-            p => Number(p.id) === item.productId
-        );
+        const producto = db.prepare('SELECT * FROM products WHERE id = ?').get(item.productId);
 
         return {
             ...producto,
             quantity: item.quantity
-        };
-
+        };p => Number(p.id) === item.productId
     });
 
     const total = carritoCompleto.reduce((acc, producto) => {
         return acc + (producto.price * producto.quantity);
-    }, 0);
+        }, 0);
 
     res.render('paginas/carrito', {
-        carrito: carritoCompleto,
-        total: total
+        carrito: carritoCompleto,total: total
     });
 
 });

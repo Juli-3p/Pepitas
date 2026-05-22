@@ -2,9 +2,11 @@ const Database = require('better-sqlite3');
 const fs = require('fs');
 const path = require('path');
 
+
 console.log('Migrando productos..\n');
 
 const db = new Database('./database.db');
+
 
 try {
   // Leer archivo JSON

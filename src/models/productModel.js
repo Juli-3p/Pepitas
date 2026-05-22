@@ -1,5 +1,3 @@
-const products = require("../datos/products.json");
-
 const productModel = {
 
    getSuggestedProducts() {

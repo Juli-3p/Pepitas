@@ -1,5 +1,4 @@
 const productsService = require("../services/productsService");
-const product = require("../datos/products.json");
 
 const productController = {
     home: (req, res) => {
