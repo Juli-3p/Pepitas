@@ -11,6 +11,16 @@ section{
     max-width: 1200px;
     margin: 0 auto;
 
+.sort-buttons button {
+    background-color: #00d084;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+    
 }
 #Termos,
 #Mates,
