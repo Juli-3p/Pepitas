@@ -4,143 +4,159 @@
         "name": "Termo Ozz 1Lt",
         "category": "Termos",
         "description": "Termo Ozz 1l Doble Pared Con Pico Cebador Y 360°.ACERO INOXIDABLE DE ALTA CALIDAD.CONTROL AVANZADO DE TEMPERATURA.DOS PICOS VERTEDORES INTERCAMBIABLES – PRECISIÓN Y VERTIDO NORMAL.DISEÑO MODERNO, ELEGANTE Y ERGONÓMICO.SATISFACCIÓN GARANTIZADA.",
-        "price": 29.999,
+        "price": 29999,
         "image": "/imagen/termo.png",
-        "featured": true
+        "featured": true,
+        "stock": 3
     },
     {
         "id": 2,
         "name": "Termo Inox 1 Lt ",
         "category": "Termos",
         "description":"Termo 1 L Media Manija Pico Matero Acero inoxidable Doble Capa Color acero Calor/frio.El Termo Acero Inoxidable Media Manija Color Plateado es el compañero perfecto para disfrutar de tus bebidas favoritas en cualquier momento y lugar.",
-        "price": 25.980,
+        "price": 25980,
         "image": "/imagen/termo 2.png",
-        "featured": true
+        "featured": true,
+        "stock": 6
     },
     {
         "id": 3,
         "name": "Termo South Port 1.3 Lt",
         "category": "Termos",
-        "description":"Termo South Port Acero Inoxidable 1.3 Litros Mate Color Negro.Conservación térmica prolongada.Tapón cebador antigoteo.Tapa metálica multifunción.Diseño outdoor con manija reforzada.Capacidad XL para todo el día.",
-        "price": 40.199,
+        "description":"Termo South Port Acero Inoxidable 1.3 Litros Mate Color Negro",
+        "price": 40199,
         "image": "/imagen/termo 3.png",
-        "featured": true
+        "featured": true,
+        "stock": 10
     },
     {
         "id": 4,
         "name": "Termo Sumate 1 Lt",
         "category": "Termos",
-        "description":"Termo Sumate 1 Litro Acero Inoxidable Con Manija.Diseñado en tecnología de alto estándar. Combina materiales resistentes y duraderos que potencian el uso, bien sea de forma cotidiana, camping o en cualquier contexto.",
-        "price": 26.808,
+        "description":"Termo Sumate 1 Litro Acero Inoxidable Con Manija",
+        "price": 26808,
         "image": "/imagen/termo 4.png",
-        "featured": false
+        "featured": false,
+        "stock": 0
     },
     {
         "id": 5,
         "name": "Mate Matesur",
         "category": "Mates",
-        "description":"Mate Uruguayo Matesur Imperial Deluxe Personalizado Acero Inox Negro.Con nuestras propias manos comenzamos a dar vida a tu mate, creando los detalles que lo harán irrepetible. No somos máquinas que hacemos mates.",
-        "price": 18.218,
+        "description":"Mate Uruguayo Matesur Imperial Deluxe Personalizado Acero Inox Negro",
+        "price": 18218,
         "image": "/imagen/mate.png",
-        "featured":true
+        "featured":true,
+        "stock": 12
     },
     {
         "id": 6,
         "name": "Mate Térmico Mapa",
         "category": "Mates",
-        "description":"Mate Térmico Mapa Argentina Acero Inoxidable.Doble Capa.Pintura texturizada.Facil limpieza.Altura 9 cm.Diámetro 8 cm.Capacidad 200 ml.Interior estampado.Bombilla Chata.Pulido Espejo.",
-        "price": 11.777,
+        "description":"Mate Térmico Mapa Argentina Acero Inoxidable",
+        "price": 11700,
         "image": "/imagen/mate 2.png",
-        "featured":false
+        "featured":false,
+        "stock": 5
     },
     {
         "id": 7,
         "name": "Mate Térmico Ozz",
         "category": "Mates",
-        "description":"Mate Térmico De Acero Inox. Doble Pared - 160 Ml Color Azul 160ml. Disfruta de tu mate con nuestro modelo de doble pared. La tecnología de vacío asegura que tu bebida se mantenga caliente por más tiempo o fría por horas.",
-        "price": 15.985,
+        "description":"Mate Térmico De Acero Inox. Doble Pared - 160 Ml Color Azul 160ml",
+        "price": 15985,
         "image": "/imagen/mate 3.png",
-        "featured":true
+        "featured":true,
+        "stock": 15
     },
     {
         "id": 8,
         "name": "Yhyd Mate",
         "category": "Mates",
-        "description":"Yhyd Yerba Mate No Tóxica Y Sin Sabor. Disfruta de la auténtica experiencia del mate con nuestro juego de tazas, diseñado especialmente para los amantes de esta tradicional bebida. Cada taza está fabricada con materiales no tóxicos.",
-        "price": 14.154,
+        "description":"Yhyd Yerba Mate No Tóxica Y Sin Sabor",
+        "price": 14154,
         "image": "/imagen/mate 4.png",
-        "featured":false
+        "featured":false,
+        "stock": 3
     },
     {
         "id": 9,
         "name": "Yerbera Azucarera Wanderlust",
         "category": "Yerberas",
-        "description":"Porta Yerbera Azucarera Mate Wanderlust Cierre Tela Color Negro. Fabricado en tela resistente con cierre, mantiene el contenido seguro y organizado, evitando derrames y facilitando su transporte.",
-        "price": 10.796,
+        "description":"Porta Yerbera Azucarera Mate Wanderlust Cierre Tela Color Negro",
+        "price": 10796,
         "image": "/imagen/yerbera.png",
-        "featured":true
+        "featured":true,
+        "stock": 25
     },
     {
         "id": 10,
         "name": "Yerbera Azucarera Marwal",
         "category": "Yerberas",
-        "description":"Latas Yerbera Azucarera Set Matero. Descubrí el Set de Latas Yerbera y Azucarera de Marwal, pensado para quienes buscan practicidad y buen diseño en su rutina de mate. Su formato cilíndrico y tamaño compacto hacen que sea una solución funcional.",
-        "price": 7.211,
+        "description":"Latas Yerbera Azucarera Set Matero",
+        "price": 7211,
         "image": "/imagen/yerbera 2.png",
-        "featured":true
+        "featured":true,
+        "stock": 9
     },
     {
         "id": 11,
         "name": "Yerbera Azucarera Stanley",
         "category": "Yerberas",
-        "description":"Latas Yerbera Azucarera Matero Color Verde. SET LATAS STANLEY YERBERA Y AZUCARERA CON PICO VERTEDOR. CONSULTAR POR VENTA MAYORISTA.IDEAL REVENTA.ENVIOS A TODO EL PAIS.",
-        "price": 8.370,
+        "description":"Latas Yerbera Azucarera Matero Color Verde",
+        "price": 8370,
         "image": "/imagen/yerbera 3.png",
-        "featured":true
+        "featured":true,
+        "stock": 0
     },
     {
         "id": 12,
         "name": "Yerbera Azucarera Pampa",
         "category": "Yerberas",
-        "description":"Mate Pampa Set Yerbera Azucarera Pamperas Kit Pico Vertedor. Modelo: Kit Pampera (azucarera + yerbera). Este increíble kit es ideal para completar tu equipo matero.",
-        "price": 32.999,
+        "description":"Mate Pampa Set Yerbera Azucarera Pamperas Kit Pico Vertedor",
+        "price": 32999,
         "image": "/imagen/yerbera 4.png",
-        "featured":false
+        "featured":false,
+        "stock": 11
     },
     {
         "id": 13,
         "name": "Bombilla CamperoArg",
         "category": "Bombillas",
-        "description":"Bombilla Alpaca Curva Uruguaya Pico De Loro Chata Plana. Largo 19cm. Alpaca Premium. Modelo: Pico chata.",
-        "price": 13.197,
+        "description":"Bombilla Alpaca Curva Uruguaya Pico De Loro Chata Plana",
+        "price": 13197,
         "image": "/imagen/bombilla.png",
-        "featured":true
+        "featured":true,
+        "stock": 50
     },
     {
         "id": 14,
         "name": "Bombilla EL SANTO MATE",
         "category": "Bombillas",
-        "description":"Bombilla Estribo Acero Inoxidable EL SANTO MATE Filtro Removible Gris. Descubre la elegancia y funcionalidad de la Bombilla Estribo Acero Inoxidable y Bronce, diseñada para los amantes del mate.",
-        "price": 3.699,
+        "description":"Bombilla Estribo Acero Inoxidable EL SANTO MATE Filtro Removible Gris",
+        "price": 3699,
         "image": "/imagen/bombilla 2.png",
-        "featured":true
+        "featured":true,
+        "stock": 62
     },
     {
         "id": 15,
         "name": "Bombilla Laska",
         "category": "Bombillas",
-        "description":"Bombillon Sol De Mayo Caño Grueso Cincelado Alpaca Premium. Caño grueso. Alpaca y bronce. Altura 18cm. Apliques SOL de mayo.",
-        "price": 5.999,
+        "description":"Bombillon Sol De Mayo Caño Grueso Cincelado Alpaca Premium",
+        "price": 5999,
         "image": "/imagen/bombilla 3.png",
-        "featured":false
+        "featured":false,
+        "stock": 18
     },
     {
         "id": 16,
         "name": "Bombilla EL SANTO MATE",
         "category": "Bombillas",
-        "description":"Bombilla Chata Acero Inoxidable EL SANTO MATE Grabada Laser Bronce 17cm. Disfruta de la elegancia y funcionalidad con la Bombilla Chata Acero Inoxidable Grabada Laser Argentina.",
-        "price": 4.499,
+        "description":"Bombilla Chata Acero Inoxidable EL SANTO MATE Grabada Laser Bronce 17cm",
+        "price": 4499,
         "image": "/imagen/bombilla 4.png",
-        "featured":false
+        "featured":false,
+        "stock": 0
     }
 ]
