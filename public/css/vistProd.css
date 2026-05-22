@@ -120,6 +120,26 @@ button{
 button:hover{
     background-color: #2968c8;
 }
+
+.sin-stock {
+    display: inline-block;
+
+    padding: 12px 20px;
+    margin-top: 10px;
+
+    background-color: #777;
+    color: white;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+    text-align: center;
+
+    cursor: not-allowed;
+
+    opacity: 0.8;
+}
+
 section{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
