@@ -150,6 +150,7 @@ router.get("/vistProd/:id", productController.detail);  // CON parámetro
 
 // RUTAS CON :id - ÚLTIMAS (MÁS GENÉRICAS)
 router.get("/products/:id", productController.detail);
+router.get("/vistProd", productController.detail);
 router.get("/:id", productController.detail);
 
 module.exports = router;

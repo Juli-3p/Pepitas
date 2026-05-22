@@ -20,6 +20,7 @@ const productController = {
         console.log(`[productController.vistProd] Accedido a /vistProd sin parámetro`);
         res.redirect("/");
     },
+    
     detail: (req, res) => {
         try {
             // El ID ya está normalizado y validado por app.param("id", ...)

@@ -4,7 +4,7 @@
 <div class="principal">
 
     <%- include('../partials/header') %>
-
+        
     <section id="vistProd">
         <article class="producto">
         <div class="imagenSecun">
@@ -20,7 +20,19 @@
             <p class="categoria">Categoría: <%= product.category %></p>
             <p class="descripcion"><%= product.description %></p>
 
-            <a class="btn-carrito" href="/agregar/<%= product.id %>">Agregar producto al carrito</a>
+            <% if (product.stock > 0) { %>
+
+                <a class="btn-carrito" href="/agregar/<%= product.id %>">
+                    Agregar producto al carrito
+                </a>
+
+            <% } else { %>
+
+                <div class="sin-stock">
+                    No hay stock
+                </div>
+
+            <% } %>
         </div>
     </article>
 </section>
