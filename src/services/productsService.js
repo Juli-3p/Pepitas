@@ -1,9 +1,21 @@
 const products = require("../datos/products.json");
 
 const productsService = {
-
     getAllProducts: () => {
         return products;
+    },
+    getSuggestedProducts: () => {
+        return products.filter(product => product.stock > 0).slice(0, 4);
+    },
+    getFeaturedProducts: () => {
+        return products.filter(product => product.featured);
+    },
+    getProductsByCategorySlug: (category) => {
+        return products.filter(
+            product =>
+                product.category.toLowerCase() ===
+                category.toLowerCase()
+        );
     },
 
     getProductById: (id) => {
@@ -12,30 +24,17 @@ const productsService = {
         );
     },
 
-    getFeaturedProducts: () => {
-        return products.filter(
-            product => product.featured
+    sortByPriceAsc: (products) => {
+        return [...products].sort(
+            (a, b) => a.price - b.price
         );
     },
 
-    getProductsByCategorySlug: (category) => {
-
-        return products.filter(
-            product =>
-                product.category.toLowerCase() ===
-                category.toLowerCase()
+    sortByPriceDesc: (products) => {
+        return [...products].sort(
+            (a, b) => b.price - a.price
         );
-
-    },
-
-    getSuggestedProducts: () => {
-
-        return products
-            .filter(product => product.stock > 0)
-            .slice(0, 4);
-
     }
-
 };
 
 module.exports = productsService;
