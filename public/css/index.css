@@ -1,6 +1,11 @@
 body{
     background-color: #D8EDDE;
 }
+h2{
+    text-align: center;
+    margin-top: 20px;
+    color: #051f20
+}
 section{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 220px));

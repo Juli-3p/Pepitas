@@ -5,7 +5,12 @@ const productsService = {
         return db.prepare("SELECT * FROM products").all();
     },
     getSuggestedProducts: () => {
-        return db.prepare(`SELECT * FROM products WHERE stock > 0 LIMIT 4`).all();
+        return db.prepare(`
+            SELECT * FROM products
+            WHERE stock > 0
+            ORDER BY RANDOM()
+            LIMIT 5
+            `).all();
     },
     getFeaturedProducts: () => {
         return db.prepare(`SELECT * FROM products WHERE featured = 1`).all();
