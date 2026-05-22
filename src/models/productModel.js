@@ -1,46 +1,79 @@
 const products = require("../datos/products.json");
 
 const productModel = {
-   getSuggestedProducts(){
+
+   getSuggestedProducts() {
+
       const shuffled = [...products].sort(() => 0.5 - Math.random());
+
       return shuffled.slice(0, 5);
-      return products.filter(product => product.suggested);
+
    },
-   getFeaturedProducts(){
-      return products.filter(product => product.featured).slice(0,10);
+
+   getFeaturedProducts() {
+
+      return products
+         .filter(product => product.featured)
+         .slice(0, 10);
+
    },
+
    slugifyCategory(category) {
+
       if (!category) return '';
+
       return category
-        .trim()
-        .toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/[^a-z0-9-]/g, '-')
-        .replace(/-+/g, '-')
-        .replace(/^-+|-+$/g, '');
+         .trim()
+         .toLowerCase()
+         .replace(/\s+/g, '-')
+         .replace(/[^a-z0-9-]/g, '-')
+         .replace(/-+/g, '-')
+         .replace(/^-+|-+$/g, '');
+
    },
+
    getProductsByCategory(category) {
+
       if (!category) return [];
+
       const normalized = category.trim().toLowerCase();
-      return products.filter(product => product.category.toLowerCase() === normalized);
+
+      return products.filter(product =>
+         product.category.toLowerCase() === normalized
+      );
+
    },
+
    getProductsByCategorySlug(categorySlug) {
+
       if (!categorySlug) return [];
-      const normalizedSlug = categorySlug.trim().toLowerCase();
+
+      const normalizedSlug =
+         categorySlug.trim().toLowerCase();
+
       return products.filter(product => {
-         const slug = this.slugifyCategory(product.category);
-         const raw = product.category.trim().toLowerCase();
-         return slug === normalizedSlug || raw === normalizedSlug;
+
+         const slug =
+            this.slugifyCategory(product.category);
+
+         const raw =
+            product.category.trim().toLowerCase();
+
+         return slug === normalizedSlug
+            || raw === normalizedSlug;
+
       });
+
    },
-   getProductsByCategorySlug: (slug) => {
-        return products.filter(product => product.category.toLowerCase() === slug);
-    },
-   getProductById: (id) => {
-        return products.find(product => product.id == id);
-    }
-}
 
+   getProductById(id) {
 
+      return products.find(product =>
+         product.id == id
+      );
+
+   }
+
+};
 
 module.exports = productModel;
