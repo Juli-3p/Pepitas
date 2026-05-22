@@ -15,12 +15,7 @@ const productController = {
             : categorySlug.replace(/-/g, ' ');
         res.render("paginas/categories", { categoryName, products });
     },
-    detail: (req, res) => {
-        res.send("detalle");
-    },
-    vistProd: (req, res) => {
-        res.render("paginas/vistProd");
-    },
+    
     detail: (req, res) => {
         const id = req.params.id;
         const product = productModel.getProductById(id);
