@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const path = require("path");
-const fs = require("fs");
+const db = require("../../db/database");
 
 const productController = require("../controllers/productController");
 
@@ -23,6 +22,7 @@ function normalizeId(rawId) {
 router.param("id", (req, res, next, idVal) => {
     const idNormalizado = normalizeId(idVal);
 
+    // ERROR 400
     if (idNormalizado === null) {
         return res.status(400).json({
             error: "El ID debe ser un número válido."
@@ -30,28 +30,19 @@ router.param("id", (req, res, next, idVal) => {
     }
 
     try {
+        const producto = db.prepare(`
+            SELECT *
+            FROM products
+            WHERE id = ?
+        `).get(idNormalizado);
 
-        const jsonPath = path.join(
-            __dirname,
-            "../datos/products.json"
-        );
-
-        const archivoData =
-            fs.readFileSync(jsonPath, "utf-8");
-
-        const productosDB =
-            JSON.parse(archivoData);
-
-        const producto = productosDB.find(
-            p => Number(p.id) === idNormalizado
-        );
-
-        // Producto inexistente
+        // ERROR 404
         if (!producto) {
             return res.status(404).json({
                 error: "Producto no encontrado."
             });
         }
+
         req.idNormalizado = idNormalizado;
         req.productoEncontrado = producto;
 
