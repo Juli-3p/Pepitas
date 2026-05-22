@@ -1,23 +1,20 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
-const fs = require('fs');
 const productos = require('./src/datos/products.json');
 const productRoute = require("./src/routes/productRoute");
 const authRoute = require("./src/routes/autenticacion");
-const expressLayouts = require('express-ejs-layouts');
+const cartService = require('./src/services/cartService');
 
 const app = express();
-const port = process.env.PORT || 3000;
 
-// ========== CONFIGURACIÓN INICIAL ==========
+const port = process.env.PORT || 5000;
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src/views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(expressLayouts);
-app.set('layout','layouts/main');
 
 app.use(session({
     secret: 'pepitas-secret',
@@ -25,86 +22,102 @@ app.use(session({
     saveUninitialized: true
 })); //Sesiones
 
-// ========== FUNCIÓN DE NORMALIZACIÓN DE IDS ==========
-function normalizeId(rawId) {
-  if (!rawId) return null;
-  
-  const cleanId = rawId.trim();
-  const parsedId = parseInt(cleanId, 10);
-  
-  if (isNaN(parsedId) || parsedId.toString() !== cleanId) {
-    return null; 
-  }
-  
-  return parsedId;
-}
-
-// ========== MIDDLEWARE DEL CARRITO ==========
 app.use((req, res, next) => {
+
     if (!req.session.cart) {
         req.session.cart = [];
     }
 
+    // Calcular total de items en el carrito
     const cartCount = (req.session.cart || []).reduce((total, item) => {
         return total + (item.quantity || 1);
     }, 0);
 
+    // Pasa el conteo del carrito a todas las vistas
     res.locals.cartCount = cartCount;
+
     next();
 }); //Sesion del carrito
 
 
-// ========== RUTAS DEL CARRITO ==========
 app.get('/carrito', (req, res) => {
 
-    console.log("MY CARRITO ROUTE RUNNING");
+    const carritoCompleto =
+        cartService.getCart(req.session);
 
-    const carritoCompleto = (req.session.cart || []).map(item => {
-
-        const producto = productos.find(
-            p => Number(p.id) === item.productId
-        );
-
-        return {
-            ...producto,
-            quantity: item.quantity
-        };
-
-    });
-
-    const total = carritoCompleto.reduce((acc, producto) => {
-        return acc + (producto.price * producto.quantity);
-    }, 0);
+    const total =
+        cartService.getTotal(carritoCompleto);
 
     res.render('paginas/carrito', {
         carrito: carritoCompleto,
-        total: total
+        total
     });
+
+});
+
+app.get('/agregar/:id', (req, res) => {
+
+    const productId = parseInt(req.params.id);
+
+    cartService.addProduct(
+        req.session,
+        productId
+    );
+
+    res.redirect('/carrito');
+
+});
+
+app.get('/restar/:id', (req, res) => {
+
+    const productId = parseInt(req.params.id);
+
+    cartService.decreaseProduct(
+        req.session,
+        productId
+    );
+
+    res.redirect('/carrito');
+
+});
+
+app.get('/quitar/:id', (req, res) => {
+
+    const productId = parseInt(req.params.id);
+
+    cartService.removeProduct(
+        req.session,
+        productId
+    );
+
+    res.redirect('/carrito');
 
 });
 
 app.get('/vaciar-carrito', (req, res) => {
-    req.session.cart = [];
+
+    cartService.clearCart(req.session);
+
     res.redirect('/carrito');
+
 });
 
-// ========== REGISTRO DE RUTAS ==========
-// IMPORTANTE: Las rutas con :id se registran DESPUÉS del app.param(),
-// así Express ejecuta el interceptor ANTES de la ruta
 app.use("/", productRoute);
 app.use("/", authRoute);
+app.use("/products", productRoute);
 
 app.post('/', (req, res) => {
     res.redirect('/vistProd');
 });
 
-app.get('/logeo',(req,res) => res.render("paginas/logeo", {layout: false}));
+app.get('/logeo',(req,res) => res.render("paginas/logeo")); //login
 
 app.post('/logeo', (req, res) => {
     res.redirect('/');
 });
 
-app.get('/registro',(req,res) => res.render("paginas/registro", {layout: false}));
+app.get('/registro',(req,res) => res.render("paginas/registro")); //registro
+
 
 app.get('/pago',(req,res) => res.render("paginas/pago")); //pago
 
@@ -112,22 +125,23 @@ app.post('/vistProd', (req, res) => {
     res.redirect('/carrito');
 });
 
+
 app.get("/checkout", (req, res) => {
-    res.status(200).render("paginas/checkout");
+  
+  res.status(200).render("paginas/checkout");//checkout
 });
 
-// ========== MANEJADORES DE ERRORES ==========
 // 500 - Server Error 
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).render("paginas/500");
 });
 
-// 404 - Not Found (DEBE ESTAR AL FINAL)
+// 404 - Not Found
 app.use((req, res) => {
     res.status(404).render("paginas/404");
 });
 
-app.listen(port, () =>{
-    console.log("Aplicacion meneando la chapa");
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Servidor ejecutándose en http://0.0.0.0:${port}`);
 });
