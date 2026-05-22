@@ -5,94 +5,99 @@ const fs = require("fs");
 
 const productController = require("../controllers/productController");
 
-// ========== FUNCIÓN DE NORMALIZACIÓN DE IDS ==========
+// ========= NORMALIZAR IDS =========
+
 function normalizeId(rawId) {
-  if (!rawId) return null;
-  
-  const cleanId = rawId.trim();
-  const parsedId = parseInt(cleanId, 10);
-  
-  if (isNaN(parsedId) || parsedId.toString() !== cleanId) {
-    return null; 
-  }
-  
-  return parsedId;
+
+    if (!rawId) return null;
+
+    const cleanId = rawId.trim();
+    const parsedId = parseInt(cleanId, 10);
+
+    if (isNaN(parsedId) || parsedId.toString() !== cleanId) {
+        return null;
+    }
+    return parsedId;
 }
 
-// ========== INTERCEPTOR DE PARÁMETROS :id EN EL ROUTER ==========
+
+// ========= VALIDACIÓN GLOBAL :id =========
+
 router.param("id", (req, res, next, idVal) => {
-  console.log(`[router.param] Recibido ID: "${idVal}"`);
-  
-  const idNormalizado = normalizeId(idVal);
-  console.log(`[router.param] ID normalizado: ${idNormalizado}`);
+    const idNormalizado = normalizeId(idVal);
 
-  // Escenario 1: ID no numérico o inválido → Error 400
-  if (idNormalizado === null) {
-    console.log(`[router.param] ID inválido: "${idVal}"`);
-    return res.status(400).json({ 
-      error: "El ID debe ser un número entero válido.",
-      statusCode: 400 
-    });
-  }
-
-  // Leer productos del JSON
-  try {
-    const jsonPath = path.join(__dirname, "../datos/products.json");
-    console.log(`[router.param] Leyendo JSON desde: ${jsonPath}`);
-    
-    const archivoData = fs.readFileSync(jsonPath, "utf-8");
-    const productosDB = JSON.parse(archivoData);
-    
-    console.log(`[router.param] Total de productos en DB: ${productosDB.length}`);
-
-    // Buscar el producto con ese ID
-    const producto = productosDB.find(p => Number(p.id) === idNormalizado);
-    
-    console.log(`[router.param] Producto encontrado:`, producto ? `${producto.name} (ID: ${producto.id})` : "NO ENCONTRADO");
-
-    // Escenario 2: ID numérico pero inexistente → Error 404
-    if (!producto) {
-      console.log(`[router.param] Producto con ID ${idNormalizado} no existe`);
-      return res.status(404).json({ 
-        error: "El producto no existe en el catálogo.",
-        statusCode: 404 
-      });
+    // ID inválido
+    if (idNormalizado === null) {
+        return res.status(400).json({
+            error: "El ID debe ser un número válido."
+        });
     }
 
-    // Guardar el ID normalizado y el producto en req para usarlos en las rutas
-    req.idNormalizado = idNormalizado;
-    req.productoEncontrado = producto;
-    console.log(`[router.param] Producto asignado a req.productoEncontrado`);
-    next();
-  } catch (err) {
-    console.error(`[router.param] ERROR:`, err.message);
-    return res.status(500).json({ 
-      error: "Error al leer la base de datos de productos.",
-      details: err.message,
-      statusCode: 500 
-    });
-  }
+    try {
+
+        const jsonPath = path.join(
+            __dirname,
+            "../datos/products.json"
+        );
+
+        const archivoData =
+            fs.readFileSync(jsonPath, "utf-8");
+
+        const productosDB =
+            JSON.parse(archivoData);
+
+        const producto = productosDB.find(
+            p => Number(p.id) === idNormalizado
+        );
+
+        // Producto inexistente
+        if (!producto) {
+            return res.status(404).json({
+                error: "Producto no encontrado."
+            });
+        }
+        req.idNormalizado = idNormalizado;
+        req.productoEncontrado = producto;
+
+        next();
+    } catch (error) {
+        return res.status(500).json({
+            error: "Error leyendo productos."
+        });
+    }
 });
 
-// ========== RUTAS ==========
-// ORDEN IMPORTANTE: Rutas específicas PRIMERO, luego genéricas
+// ========= HOME =========
 
-// HOME Y CATEGORÍAS
 router.get("/", productController.home);
-router.get("/categories/:category", productController.category);
 
-// RUTAS DE CARRITO - ESPECÍFICAS, ANTES DE :id GENÉRICO
+// ========= CATEGORÍAS =========
+
+router.get(
+    "/categories/:category",
+    productController.category
+);
+
+// ========= DETALLE PRODUCTO =========
+
+router.get(
+    "/products/:id",
+    productController.detail
+);
+
+// ========= CARRITO =========
+
 router.get("/agregar/:id", (req, res) => {
     if (!req.session.cart) {
         req.session.cart = [];
     }
+  
+    const productId = req.idNormalizado;
 
-    const productId = req.idNormalizado; // Usa el ID ya normalizado
-
-    const productoEnCarrito = req.session.cart.find(
-        item => item.productId === productId
-    );
-
+    const productoEnCarrito =
+        req.session.cart.find(
+            item => item.productId === productId
+        );
     if (productoEnCarrito) {
         productoEnCarrito.quantity++;
     } else {
@@ -101,55 +106,53 @@ router.get("/agregar/:id", (req, res) => {
             quantity: 1
         });
     }
-
-    console.log("Carrito después de agregar:", req.session.cart);
-    res.redirect('/carrito');
+    res.redirect("/carrito");
 });
 
 router.get("/restar/:id", (req, res) => {
+
     if (!req.session.cart) {
         req.session.cart = [];
     }
 
-    const productId = req.idNormalizado; // Usa el ID ya normalizado
+    const productId = req.idNormalizado;
 
-    const productoEnCarrito = req.session.cart.find(
-        item => item.productId === productId
-    );
+    const productoEnCarrito =
+        req.session.cart.find(
+            item => item.productId === productId
+        );
 
     if (productoEnCarrito) {
         productoEnCarrito.quantity--;
 
         if (productoEnCarrito.quantity <= 0) {
-            req.session.cart = req.session.cart.filter(
-                item => item.productId !== productId
-            );
+            req.session.cart =
+                req.session.cart.filter(
+                    item => item.productId !== productId
+                );
         }
     }
-
-    res.redirect('/carrito');
+    res.redirect("/carrito");
 });
 
 router.get("/quitar/:id", (req, res) => {
     if (!req.session.cart) {
         req.session.cart = [];
     }
-
-    const productId = req.idNormalizado; // Usa el ID ya normalizado
-
-    req.session.cart = req.session.cart.filter(
-        item => item.productId !== productId
-    );
-
-    res.redirect('/carrito');
+  
+    const productId = req.idNormalizado;
+    req.session.cart =
+        req.session.cart.filter(
+            item => item.productId !== productId
+        );
+    res.redirect("/carrito");
 });
 
-// RUTAS DE VISTA DE PRODUCTO - ESPECÍFICAS
-router.get("/vistProd", productController.vistProd);  // SIN parámetro
-router.get("/vistProd/:id", productController.detail);  // CON parámetro
+// ========= VACIAR CARRITO =========
 
-// RUTAS CON :id - ÚLTIMAS (MÁS GENÉRICAS)
-router.get("/products/:id", productController.detail);
-router.get("/vistProd", productController.detail);
+router.get("/vaciar", (req, res) => {
+    req.session.cart = [];
+    res.redirect("/carrito");
+});
 
 module.exports = router;
