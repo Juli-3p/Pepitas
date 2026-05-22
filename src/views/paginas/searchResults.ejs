@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/index.css">
+
+<h2>Resultados para: "<%= query %>"</h2>
+<section class="productos-container">
+    <% if(results.length > 0) { %>
+        <% results.forEach(product => { %>
+            <article class="producto">
+                <div class="imagen">
+                    <img src="<%= product.image || '/imagen/fallback.png' %>" alt="<%= product.name %>">
+                </div>
+                <h3><%= product.name %></h3>
+                <p class="precio">$<%= product.price %></p>
+                <form action="/products/<%= product.id %>" method="GET">
+                    <button>Ver Producto</button>
+                </form>
+            </article>
+        <% }) %>
+    <% } else { %>
+        <p>No se encontraron productos.</p>
+    <% } %>
+</section>

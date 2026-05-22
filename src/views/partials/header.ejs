@@ -5,10 +5,15 @@
   <img src="/imagen/logo_pepitas.png" alt="Pepitas">
 </a>
 
-  <div class="buscador">
-    <input type="text" placeholder="Buscar productos..." />
-    <button>🔍</button>
-  </div>
+  <form class="buscador" action="/search" method="GET">
+  <input 
+    type="text" 
+    name="query"
+    placeholder="Buscar productos..." 
+    required
+  />
+  <button type="submit">🔍</button>
+</form>
 
   <div class="seccion">
     <div class="carrito">

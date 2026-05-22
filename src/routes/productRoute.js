@@ -5,7 +5,6 @@ const fs = require("fs");
 
 const productController = require("../controllers/productController");
 
-// ========= NORMALIZAR IDS =========
 
 function normalizeId(rawId) {
 
@@ -21,12 +20,9 @@ function normalizeId(rawId) {
 }
 
 
-// ========= VALIDACIÓN GLOBAL :id =========
-
 router.param("id", (req, res, next, idVal) => {
     const idNormalizado = normalizeId(idVal);
 
-    // ID inválido
     if (idNormalizado === null) {
         return res.status(400).json({
             error: "El ID debe ser un número válido."
@@ -67,25 +63,12 @@ router.param("id", (req, res, next, idVal) => {
     }
 });
 
-// ========= HOME =========
 
 router.get("/", productController.home);
+router.get("/search", productController.search);
+router.get("/categories/:category", productController.category);
+router.get("/products/:id", productController.detail);
 
-// ========= CATEGORÍAS =========
-
-router.get(
-    "/categories/:category",
-    productController.category
-);
-
-// ========= DETALLE PRODUCTO =========
-
-router.get(
-    "/products/:id",
-    productController.detail
-);
-
-// ========= CARRITO =========
 
 router.get("/agregar/:id", (req, res) => {
     if (!req.session.cart) {
@@ -148,7 +131,6 @@ router.get("/quitar/:id", (req, res) => {
     res.redirect("/carrito");
 });
 
-// ========= VACIAR CARRITO =========
 
 router.get("/vaciar", (req, res) => {
     req.session.cart = [];

@@ -65,16 +65,23 @@ const productController = {
         const categoryName = products.length > 0
             ? products[0].category
             : categorySlug.replace(/-/g, ' ');
-        res.render("paginas/categories", { categoryName, products });
-    },
+            res.render("paginas/categories", { categoryName, products });
+        },
+
+        search: (req, res) => {
+            const query = req.query.query;
+            const results = productsService.searchProducts(query);
     
-    detail: (req, res) => {
-        const id = req.params.id;
-        const product = productsService.getProductById(id);
-        
-        if (!product) {
-            return res.status(404).render("paginas/404");
-        }
+            res.render("paginas/searchResults",{query, results});
+        },
+
+        detail: (req, res) => {
+            const id = req.params.id;
+            const product = productsService.getProductById(id);
+            
+            if (!product) {
+                return res.status(404).render("paginas/404");
+            }
         const relatedProducts = productsService.getProductsByCategorySlug(product.category.toLowerCase()).filter(p => p.id != product.id).slice(0, 4);
         
         res.render("paginas/vistProd", {

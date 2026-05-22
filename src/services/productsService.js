@@ -23,6 +23,11 @@ const productsService = {
             product => Number(product.id) === Number(id)
         );
     },
+    searchProducts: (query) => {
+        if (!query) return [];
+        
+        return products.filter(product => product.name.toLowerCase().includes(query.toLowerCase()));
+    },
 
     sortByPriceAsc: (products) => {
         return [...products].sort(
