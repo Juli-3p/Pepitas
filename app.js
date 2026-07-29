@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
@@ -5,6 +6,10 @@ const productRoute = require("./src/routes/productRoute");
 const authRoute = require("./src/routes/autenticacion");
 const expressLayouts = require('express-ejs-layouts');
 const db = require("./db/database");
+const productsApiRoute = require('./src/routes/Api/productsApiRoute');
+const productsService = require("./src/services/productsService");
+const statsApiRoute = require('./src/routes/Api/statsApiRoute');
+const categoriesApiRoute = require('./src/routes/Api/categoriesApiRoute');
 
 const app = express();
 
@@ -15,6 +20,11 @@ app.set("views", path.join(__dirname, "src/views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
+
+app.use("/api/products", productsApiRoute);
+app.use("/api/stats", statsApiRoute);
+app.use("/api/categories", categoriesApiRoute);
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -70,20 +80,20 @@ app.get('/carrito', (req, res) => {
 
     const carritoCompleto = (req.session.cart || []).map(item => {
 
-        const producto = db.prepare('SELECT * FROM products WHERE id = ?').get(item.productId);
+        const producto = productsService.getProductById(item.productId);
 
         return {
             ...producto,
             quantity: item.quantity
-        };p => Number(p.id) === item.productId
-    });
+        };
 
+    });
     const total = carritoCompleto.reduce((acc, producto) => {
         return acc + (producto.price * producto.quantity);
-        }, 0);
-
+    }, 0);
     res.render('paginas/carrito', {
-        carrito: carritoCompleto,total: total
+        carrito: carritoCompleto,
+        total: total
     });
 
 });
@@ -161,10 +171,6 @@ app.get('/vaciar-carrito', (req, res) => {
 
 app.post('/vistProd', (req, res) => {
     res.redirect('/carrito');
-});
-
-app.get("/checkout", (req, res) => {
-    res.status(200).render("paginas/checkout");
 });
 
 app.use((err, req, res, next) => {
